@@ -1,0 +1,55 @@
+.Pagenews .content .header {
+    padding: 40px 0 30px 70px;
+}
+#ranking {
+    /* padding-top: 30px; */
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 150px;
+    margin-left: 0;
+    /* padding-bottom: 30px; */
+    width: 170px;
+    float: left;
+    text-align: left;
+}
+#ranking ul{
+    list-style: none;
+    width: 100%;
+}
+#ranking ul li{
+    /* border-bottom: 1px solid #000; */
+    height: 190px;
+    width: 100%;
+} 
+#ranking ul li div{
+    width: 100%;
+    padding-top: 30px;
+    /* padding-left: 20px;
+    padding-right: 20px; */
+    font-size: 100px;
+    text-align: center;
+    color: #E6E6FA
+} 
+#ranking ul li div p{
+    text-align: center;
+    font-size: 10px;
+}
+.none{
+    text-align: center;
+    line-height:190px;
+    font-size:20px
+}
+.none p{
+    width: 100%;
+    line-height: 190px;
+    text-align: center;
+    line-height:190px;font-size:20px
+}
+.Pagenews #newslist .newsbody .date .md {
+    display: block;
+}
+#newslist .newsbody .date .md span {
+    float: right;
+    display: block;
+    border: none;
+}
