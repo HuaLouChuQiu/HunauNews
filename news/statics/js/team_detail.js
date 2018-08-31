@@ -17,21 +17,21 @@ $(function(){
             people_id : id
         },
         success: function(data){
-            console.log(data);
+            console.log(data[0]);
                 var html = 
                 `
-                <div id="teamimage"><img src="${data.people_image}" width="408" /></div>
+                <div id="teamimage"><img src="${data[0].people_image}" width="408" /></div>
                 <div id="teambody">
                     <div class="theader">
-                        <p class="title">${data.people_name}</p>
-                        <p class="subtitle">${data.people_class}</p>
+                        <p class="title">${data[0].people_name}</p>
+                        <p class="subtitle">${data[0].people_class}</p>
                         <div class="postbody">
                             <p><span style="font-size: 16px;"></span></p>
-                            <p><span style="font-size: 16px;">基本信息</span><br /><br />${data.people_information}</p>
+                            <p><span style="font-size: 16px;">基本信息</span><br /><br />${data[0].people_information}</p>
                             <p style="border-top:1px dotted  #dadada; margin-top:30px; margin-bottom:10px;"><br /></p>
-                            <p><span style="font-size: 16px;">个人履历</span><br /><br />${data.people_experience}</p>
+                            <p><span style="font-size: 16px;">个人履历</span><br /><br />${data[0].people_experience}</p>
                             <p style="border-top:1px dotted  #dadada; margin-top:30px; margin-bottom:10px;"><br /></p>
-                            <p><span style="font-size: 16px;">人物成就</span><br /><br />${data.people_text}</p>
+                            <p><span style="font-size: 16px;">人物成就</span><br /><br />${data[0].people_text}</p>
                             <p style="border-top:1px dotted  #dadada; margin-top:30px; margin-bottom:10px;"><br /></p>
                         </div>
                     </div>
