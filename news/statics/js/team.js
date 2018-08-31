@@ -2,7 +2,7 @@ $(function(){
     $.ajax({
         type: 'GET',
         url: '../../../news/showPeople',
-        dataType: JSON,
+        dataType: 'json',
         success: function(data){
             console.log(data);
             for(var i=0;i<data.lengthl;i++){
