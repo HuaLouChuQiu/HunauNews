@@ -23,7 +23,7 @@ $(function(){
                         <p class="subtitle">${data[i].people_class}</p>
                         <p class="description">${data[i].people_work}</p>
                     </div>
-                    <a href="team_detail.html?id=${data[i].people_id}" target="_blank" class="details">more<i class="fa fa-angle-right"></i></a>
+                    <a href="team_detail.html?id=${data[i].people_id}" class="details">more<i class="fa fa-angle-right"></i></a>
                 </div>
                 `
                 $('#teamlist').append(html);
