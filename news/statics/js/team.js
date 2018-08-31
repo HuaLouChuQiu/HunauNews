@@ -5,7 +5,7 @@ $(function(){
         dataType: 'JSON',
         success: function(data){
             console.log(data);
-            for(var i=0;i<data.lengthl;i++){
+            for(var i=0;i<data.length;i++){
                 var html = 
                 `
                 <div class="wrap">
@@ -18,13 +18,12 @@ $(function(){
                     </a>
                     <div class="teaminfo">
                         <p class="title">
-                            <a href="#">符少辉</a>
+                            <a href="#">${data[i].people_name}</a>
                         </p>
-                        <p class="subtitle">党委副书记、校长</p>
-                        <p class="description">主持行政工作，负责审计、外事等工作。分管审计处、国际交流与合作处。联系国际学院，中国民主同盟湖南农业大学委员会。
-                        </p>
+                        <p class="subtitle">${data[i].people_class}</p>
+                        <p class="description">${data[i].people_work}</p>
                     </div>
-                    <a href="team_detail.html" target="_blank" class="details">more<i class="fa fa-angle-right"></i></a>
+                    <a href="team_detail.html?id=${data[i].people_id}" target="_blank" class="details">more<i class="fa fa-angle-right"></i></a>
                 </div>
                 `
                 $('#teamlist').append(html);
