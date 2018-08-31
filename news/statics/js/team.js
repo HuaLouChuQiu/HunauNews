@@ -11,7 +11,7 @@ $(function(){
                 <div class="wrap">
                 <div class="teamitem">
                     <a href="team_detail.html">
-                        <div class="teamimg"><img src="statics/images/char0.jpg" width="320" height="320" /></div>
+                        <div class="teamimg"><img src="${data[i].people_image}" width="320" height="320" /></div>
                         <div class="wrap">
                             <div><span class="h"></span><span class="v"></span></div>
                         </div>
