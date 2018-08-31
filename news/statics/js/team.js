@@ -27,6 +27,7 @@ $(function(){
                 </div>
                 `
                 $('#teamlist').append(html);
+                console.log(data[i].people_name)
             }
         },
         error:function(error){
