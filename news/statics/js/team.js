@@ -10,7 +10,7 @@ $(function(){
                 `
                 <div class="wrap">
                 <div class="teamitem">
-                    <a href="team_detail.html">
+                    <a href="team_detail.html?id=${data[i].people_id}">
                         <div class="teamimg"><img src="${data[i].people_image}" width="320" height="320" /></div>
                         <div class="wrap">
                             <div><span class="h"></span><span class="v"></span></div>
@@ -18,7 +18,7 @@ $(function(){
                     </a>
                     <div class="teaminfo">
                         <p class="title">
-                            <a href="#">${data[i].people_name}</a>
+                            <a href="team_detail.html?id=${data[i].people_id}">${data[i].people_name}</a>
                         </p>
                         <p class="subtitle">${data[i].people_class}</p>
                         <p class="description">${data[i].people_work}</p>
