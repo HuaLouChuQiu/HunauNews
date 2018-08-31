@@ -1,11 +1,12 @@
 $(function(){
-    $.getUrlParam = function (name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) return unescape(r[2]); return null;
+    function GetQueryString(name)
+    {
+    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if(r!=null)return unescape(r[2]); return null;
     }
     
-    var id = $.getUrlParam(id);
+    var id = GetQueryString(id);
     console.log(id);
     $.ajax({
         type: 'GET',
