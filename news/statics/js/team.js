@@ -1,7 +1,7 @@
 $(function(){
     $.ajax({
         type: 'GET',
-        url: '../../news/showPeople',
+        url: '../../../news/showPeople',
         dataType: JSON,
         success: function(data){
             console.log(data);
