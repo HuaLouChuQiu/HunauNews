@@ -121,7 +121,26 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     display: inline-block;}
-	
+  
+    
+
+
+    /* 自加 */
+
+  #header #logo {
+      padding: 0px 0 0px 25px;
+      float: left;
+  }
+  #header #logo img {
+    height: 100%;
+}
+  
+
+
+
+
+
+
 /*!
  * # Semantic UI 2.2.12 - Form
  * http://github.com/semantic-org/semantic-ui/
