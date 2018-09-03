@@ -52,15 +52,18 @@ $(function(){
             for(var i=0;i<data.length;i++){
                 let html = 
                 `
-                <img src="statics/images/news (73).png" width="320" height="120" alt="战略规划管理咨询" />
+                <a href="#" target="_blank">
+                <p class="service_img">
+                    <img src="statics/images/news (81).png" width="320" height="120" alt="" />
+                </p>
+                <div class="service_info">
+                    <p class="title">${data[i].title}</p>
+                    <p class="description">${data[i].text}</p>
+                </div>
+            </a>
+            <a href="#" target="_blank" class="details">more<i class="fa fa-angle-right"></i></a>
                 `
-                $('.service_img').append(html);
-                let html1 = 
-                `
-                <p class="title">${data[i].title}</p>
-                <p class="description">${data[i].text}</p>
-                `
-                $('.service_info').append(html1);
+                $('#serviceitem_0').append(html);
             }
         },
         error:function(error){
