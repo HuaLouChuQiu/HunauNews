@@ -8,7 +8,7 @@ $(function(){
             console.log(data);
             for(var i=0;i<4;i++){
                 var date = new Date(data[i].create_time);
-                // var date = new Date(date[i].create_time).Format("yyyy-MM-dd");
+                // var date = new Date(data[i].create_time).Format("yyyy-MM-dd");
                 var Y = date.getFullYear();
                 var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
                 var D = date.getDate() + ' '; 
@@ -80,14 +80,19 @@ $(function(){
         success: function(data){
             console.log(data);
             for(var i=0;i<data.length;i++){
-                let date = new Date(data[i].create_time).Format("yyyy-MM-dd");
+                // let date = new Date(data[i].create_time).Format("yyyy-MM-dd");
+                var oDate = new Date(data[i].create_time);
+                var oY = oDate.getFullYear() + '-';
+                var oM = (oDate.getMonth()+1 < 10 ? '0'+(oDate.getMonth()+1) : oDate.getMonth()+1) + '-';
+                var oD = oDate.getDate() + ' '; 
+                var oMD=oY+oM+oD;
                 let html = 
                 `
                 <div class="project_img"><img src="statics/images/news (57).png" alt="" width="650" height="385" /></div>
                 <div class="project_info">
                     <div>
                         <p class="title">${data[i].title}</p>
-                        <p class="subtitle">${date}</p>
+                        <p class="subtitle">${oMD}</p>
                         <p class="description hide">${data[i].text}</p>
                     </div>
                 </div>
