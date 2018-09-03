@@ -16,14 +16,14 @@ $(function(){
                             <div><span class="h"></span><span class="v"></span></div>
                         </div>
                     </a>
-                    <div class="teaminfo">
+                    <div class="teaminfo" style="width: 630px;margin-right: 175px;padding-top: 40px;">
                         <p class="title">
                             <a href="team_detail.html?id=${data[i].people_id}">${data[i].people_name}</a>
                         </p>
                         <p class="subtitle">${data[i].people_class}</p>
                         <p class="description">${data[i].people_work}</p>
                     </div>
-                    <a href="team_detail.html?id=${data[i].people_id}" class="details">more<i class="fa fa-angle-right"></i></a>
+                    <a href="team_detail.html?id=${data[i].people_id}" class="details" style="left:730px;">more<i class="fa fa-angle-right"></i></a>
                 </div>
                 `
                 $('#teamlist').append(html);
