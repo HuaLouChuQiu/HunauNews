@@ -4,7 +4,6 @@
     margin-top: 25px;
     padding-left: 0;
     display: -webkit-box;
-    /* display: block; */
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
