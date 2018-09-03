@@ -23,7 +23,7 @@ $(function(){
                     <div class="news_wrapper">
                         <div class="newsbody">
                             <p class="date"><span class="md">${Y}<span>-</span></span><span class="year">${MD}</span></p>
-                            <p class="title">${data[i].tital}</p>
+                            <p class="title">${data[i].title}</p>
                             <div class="separator"></div>
                             <p class="description">${data[i].text}</p>
                         </div>
