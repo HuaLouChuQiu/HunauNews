@@ -4,3 +4,6 @@
     -webkit-line-clamp: 3;
     overflow: hidden;
 }
+.description{
+    display: none;
+}
