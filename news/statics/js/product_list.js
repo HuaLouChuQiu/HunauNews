@@ -31,6 +31,7 @@ $(document).ready(function () {
             success: function(data){
                 console.log(data);
                 $('.content_list').empty();
+                $('.pagination').empty();
                 for(var i=0;i<data.length;i++){
 
                     var date = new Date(data[i].create_time);
