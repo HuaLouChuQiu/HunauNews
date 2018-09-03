@@ -5,7 +5,7 @@ $(document).ready(function () {
             type: 'GET',
             url: '../../../news/showNewsByClass',
             data:{
-                class_id:0,
+                class_id:number,
             },
             dataType: 'JSON',
             success: function(data){
