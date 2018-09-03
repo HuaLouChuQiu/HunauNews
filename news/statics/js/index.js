@@ -6,7 +6,7 @@ $(function(){
         success: function(data){
             console.log(data);
             for(var i=0;i<4;i++){
-                var date = new Date(date[i].create_time);
+                var date = new Date(data[i].create_time);
                 // var date = new Date(date[i].create_time).Format("yyyy-MM-dd");
                 var Y = date.getFullYear();
                 var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
