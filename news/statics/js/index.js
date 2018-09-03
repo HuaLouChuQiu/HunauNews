@@ -50,20 +50,17 @@ $(function(){
         success: function(data){
             console.log(data);
             for(var i=0;i<data.length;i++){
-                var html = 
+                let html = 
                 `
-                <li id="serviceitem_0" class="serviceitem wow">
-                <a href="#" target="_blank">
-                    <p class="service_img"><img src="statics/images/148100202198.jpg" width="320" height="120" alt="战略规划管理咨询" /></p>
-                    <div class="service_info">
-                        <p class="title">战略规划管理咨询</p>
-                        <p class="description">从定价策略到品牌定位，再到数字化营销。我们丰富的经验确保定制方案，市场营销是在创造/沟通交换产品中... </p>
-                    </div>
-                </a>
-                <a href="#" target="_blank" class="details">more<i class="fa fa-angle-right"></i></a>
-            </li>
+                <img src="statics/images/news (73).png" width="320" height="120" alt="战略规划管理咨询" />
                 `
-                $('#headlineNews').append(html);
+                $('.service_img').append(html);
+                let html1 = 
+                `
+                <p class="title">${data[i].title}</p>
+                <p class="description">${data[i].text}</p>
+                `
+                $('.service_info').append(html1);
             }
         },
         error:function(error){
