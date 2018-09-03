@@ -67,7 +67,7 @@ $(document).ready(function () {
                     totalItemCount: data.length,    //项目总数,大于0，显示页码总数
                     totalPageCount: allPages,        //总页数
                     callback:function(pageNum){
-                        leibie(number,pageNum)
+                        pages(number,pageNum)
                     }
                 });
 
