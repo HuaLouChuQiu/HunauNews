@@ -54,7 +54,7 @@ $(function(){
                 `
                 <li id="serviceitem_0" class="serviceitem wow">
                 <a href="#" target="_blank">
-                    <p class="service_img"><img src="statics/images/news (73).png" width="320" height="120" alt="战略规划管理咨询" /></p>
+                    <p class="service_img"><img src="statics/images/148100202198.jpg" width="320" height="120" alt="战略规划管理咨询" /></p>
                     <div class="service_info">
                         <p class="title">${data[i].title}</p>
                         <p class="description">${data[i].text}</p>
