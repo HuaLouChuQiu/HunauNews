@@ -14,7 +14,7 @@ $(function(){
                 // var Y = date.getFullYear();
                 var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
                 var D = date.getDate() + ' '; 
-                var MD=Y+M+D;
+                var MD=M+D;
 
                 let html = 
                 `
