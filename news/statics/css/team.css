@@ -15,3 +15,12 @@ display: -webkit-box;
     margin-top: -15px;
     padding-top: 5px;
 }
+
+.Pageteam #teamlist .teamitem a.details {
+    left: 750px;
+}
+.Pageteam #teamlist .teamitem .teaminfo {
+    width: 630px;
+    margin-right: 175px;
+    padding-top: 40px;
+}
