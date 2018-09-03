@@ -28,7 +28,7 @@ $(function(){
                             <p class="description">${data[i].text}</p>
                         </div>
                     </div>
-                    <div class="newsimg" style="background-image:url(${data[i].image})"></div>
+                    <img class="newsimg"  src="${data[i].image}"/>
                 </a>
                 <a href="news_detail.html" target="_blank" class="details">more<i class="fa fa-angle-right"></i></a>
             </div>
