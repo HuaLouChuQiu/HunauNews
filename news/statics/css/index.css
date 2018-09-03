@@ -5,5 +5,5 @@
     overflow: hidden;
 }
 .description{
-    display: none;
+    display: -webkit-box;
 }
