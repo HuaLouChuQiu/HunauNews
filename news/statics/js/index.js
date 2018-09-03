@@ -80,7 +80,7 @@ $(function(){
         success: function(data){
             console.log(data);
             for(var i=0;i<data.length;i++){
-                let date = new Date(date[i].create_time).Format("yyyy-MM-dd");
+                let date = new Date(data[i].create_time).Format("yyyy-MM-dd");
                 let html = 
                 `
                 <div class="project_img"><img src="statics/images/news (57).png" alt="" width="650" height="385" /></div>
@@ -93,7 +93,7 @@ $(function(){
                 </div>
                 `
                 $('.projectitem_wrapper').each(function(index,item){
-                    console.log(index)
+                    // console.log(index)
                     if(i == index){
                         $(item).append(html)
                     }
