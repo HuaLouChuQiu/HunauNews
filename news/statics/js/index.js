@@ -80,14 +80,15 @@ $(function(){
         success: function(data){
             console.log(data);
             for(var i=0;i<data.length;i++){
+                let date = new Date(date[i].create_time).Format("yyyy-MM-dd");
                 let html = 
                 `
-                <div class="project_img"><img src="statics/images/1481602482401.jpg" alt="中国式阿米巴经营" width="650" height="385" /></div>
+                <div class="project_img"><img src="statics/images/news (57).png" alt="" width="650" height="385" /></div>
                 <div class="project_info">
                     <div>
-                        <p class="title">中国式阿米巴经营</p>
-                        <p class="subtitle">生态服务产品</p>
-                        <p class="description hide">我们帮助这些企业实现了显著的业务成果 — 亿滋国际已节约10亿美元 ...</p>
+                        <p class="title">${data[i].title}</p>
+                        <p class="subtitle">${date}</p>
+                        <p class="description hide">${data[i].text}</p>
                     </div>
                 </div>
                 `
