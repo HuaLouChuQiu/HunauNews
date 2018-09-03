@@ -7,4 +7,6 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
+    font-size: 13px;
+    line-height: 24px;
 }
