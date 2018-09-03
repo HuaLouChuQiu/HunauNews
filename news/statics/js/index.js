@@ -3,6 +3,9 @@ $(function(){
     $.ajax({
         type: 'GET',
         url: '../../../news/rankNews',
+        data:{
+            number:5,
+        },
         dataType: 'JSON',
         success: function(data){
             console.log(data);
