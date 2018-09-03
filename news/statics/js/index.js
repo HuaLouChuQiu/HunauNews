@@ -93,7 +93,7 @@ $(function(){
                     <div>
                         <p class="title">${data[i].title}</p>
                         <p class="subtitle">${oMD}</p>
-                        <p class="description0">${data[i].text}</p>
+                        <p class="description">${data[i].text}</p>
                     </div>
                 </div>
                 `
