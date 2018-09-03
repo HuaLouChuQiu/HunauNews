@@ -6,16 +6,26 @@ $(function(){
         success: function(data){
             console.log(data);
             for(var i=0;i<4;i++){
+                var date = new Date(date[i].create_time);
+                // var date = new Date(date[i].create_time).Format("yyyy-MM-dd");
+                var Y = date.getFullYear();
+                var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+                var D = date.getDate() + ' '; 
+                var MD=M+D;
+
+                console.log(Y)
+                console.log(MD)
+                
                 var html = 
                 `
                 <li id="newsitem_0" class="wow newstitem left">
                 <a class="newscontent" target="_blank" href="#">
                     <div class="news_wrapper">
                         <div class="newsbody">
-                            <p class="date"><span class="md">2015<span>-</span></span><span class="year">10-19</span></p>
-                            <p class="title">洞察企业转型之道 助力企业转型之举的主线</p>
+                            <p class="date"><span class="md">${Y}<span>-</span></span><span class="year">${MD}</span></p>
+                            <p class="title">${data[i].tital}</p>
                             <div class="separator"></div>
-                            <p class="description">等了这么久，勤劳的技术哥哥马不停蹄的敲着代码，终于WEB的后台于今日初步完成，已经 ...</p>
+                            <p class="description">${data[i].text}</p>
                         </div>
                     </div>
                     <div class="newsimg" style="background-image:url(statics/images/1482133948355.jpg)"></div>
