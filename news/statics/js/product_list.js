@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    pages(0);
+    pages(0,1);
     //获取总页数
     function pages(number,page){
         $.ajax({
@@ -9,9 +9,9 @@ $(document).ready(function () {
                 class_id:number,
             },
             dataType: 'JSON',
-            success: function(data){
-                console.log(data);
-                // leibie(0,1)
+            success: function(allPages){
+                console.log(allPages);
+                leibie(number,page,allPages);
             },
             error:function(error){
 
@@ -19,8 +19,7 @@ $(document).ready(function () {
         })
     }
     //获取各个类别的新闻
-    leibie(0,1)
-    function leibie(number,page){
+    function leibie(number,page,allPages){
         $.ajax({
             type: 'GET',
             url: '../../../news/showNewsByClass',
@@ -31,6 +30,7 @@ $(document).ready(function () {
             dataType: 'JSON',
             success: function(data){
                 console.log(data);
+                $('.content_list').empty();
                 for(var i=0;i<data.length;i++){
 
                     var date = new Date(data[i].create_time);
@@ -64,7 +64,7 @@ $(document).ready(function () {
                     startPage: 1,    //默认第一页
                     currentPage: page,          //当前页码
                     totalItemCount: data.length,    //项目总数,大于0，显示页码总数
-                    totalPageCount: 20,        //总页数
+                    totalPageCount: allPages,        //总页数
                     callback:function(pageNum){
                         leibie(number,pageNum)
                     }
@@ -84,7 +84,7 @@ $(document).ready(function () {
             $('#category li').find('.active').removeClass('active');
             $(item).find('a').addClass('active');
             console.log(index);
-            leibie(index,0);
+            pages(index,1);
         })
     })
 
