@@ -28,7 +28,7 @@ $(function(){
             </div>
                 `
                
-                $('#newslist:wrapper').append(html)
+                $('.wrapper').append(html)
     
      
             }
