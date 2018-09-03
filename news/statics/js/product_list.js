@@ -5,11 +5,13 @@ $(document).ready(function () {
             type: 'GET',
             url: '../../../news/showNewsByClass',
             data:{
-                class_id:number,
+                class_id:0,
             },
             dataType: 'JSON',
             success: function(data){
                 console.log(data);
+
+
             },
             error:function(error){
                 console.log(error);
