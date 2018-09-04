@@ -29,7 +29,7 @@ $(function(){
     //推荐
     $.ajax({
         type: 'GET',
-        url: '../../../news/findNameById',
+        url: '../../../news/showNewsByClass',
         data:{
             class_id:class_id,
             page:1
@@ -38,7 +38,7 @@ $(function(){
         success: function(data){
             console.log(data);
             for(var i=0;i<data.length;i++)
-                let html = 
+                let html4 = 
                 `
                 <div class="projectitem">
                 <a href="#" target="_blank">
@@ -52,7 +52,7 @@ $(function(){
                 </a>
             </div>
                 `
-                $('#projectib').append(html);
+                $('#projectib').append(html4);
         },
         error:function(error){
             console.log(error);
