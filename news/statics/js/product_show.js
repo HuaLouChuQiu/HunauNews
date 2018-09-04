@@ -20,22 +20,60 @@ $(function(){
         dataType: 'JSON',
         success: function(data){
             console.log(data);
+            var date = new Date(data.create_time);
+            var Y = date.getFullYear() + '-';
+            var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+            var D = date.getDate() + ' '; 
+            var YMD=Y+M+D;
+
+            if(data.image!=''){
+                var html = 
+                `
+            <div class="postbody">
+                <p><img src="${data.image}" /></p>
+                <hr/>
+                <p>${data.text}</p>
+                <p><br /></p>
+            </div>
+            <p id="author" style="margin-top:30px; margin-bottom:10px;">
+
+            </p> 
+                `
+                $('#projectbody').append(html);
+            }else{
                 var html = 
                 `
                 <div class="postbody">
-                <p><img src="statics/images/1482227097825.jpg" /></p>
-                <hr/>
-                <p>01.&nbsp; 泛游戏兴趣聚合平台“着迷”将正式宣布其已完成 C 轮融资，由优酷土豆集团领投、掌趣科技跟投，具体的融资数额并未公布。另外，着迷向36氪透露，计划在年底挂牌新三板，目前已经和一些券商等合作方在做前期工作。<br /><br />02.&nbsp; 优土和着迷在战略上的资本合作，体现在业务层面主要有两块。首先是优酷会在平台上开辟一块全新的游戏中心，由着迷进行运营，将在优酷土豆于本月中旬上线的新版中首次上线；其次，双方将成立一家合资公司，以独立品牌开拓游戏发行业务。</p>
-                <p><br /></p>
-                <p><img src="statics/images/1482227100210.jpg" /></p>
-                <p><img src="statics/images/1482227104934.jpg" /></p>
-            </div>
-            <p style="margin-top:30px; margin-bottom:10px;">
-                <p style="text-align: right; font-size:14px;">湖南农业大学</p>
-                <p style="text-align: right; font-size:14px;">2018年8月</p>
-            </p>
+                    <p>${data.text}</p>
+                    <p><br /></p>
+                </div>
+                <p id="author" style="margin-top:30px; margin-bottom:10px;">
+
+                </p> 
                 `
                 $('#projectbody').append(html);
+            }
+            $.ajax({
+                type: 'GET',
+                url: '../../../news/findNameById',
+                data:{
+                    user_id:data.user_id
+                },
+                dataType: 'JSON',
+                success: function(talk){
+                    console.log(talk);
+                        var html = 
+                        `
+                        <p style="text-align: right; font-size:14px;">${talk.username}</p>
+                        <p style="text-align: right; font-size:14px;">${YMD}</p>
+                        `
+                        $('#author').append(html);
+                },
+                error:function(error){
+                    console.log(error);
+                }
+                
+              });    
             
         },
         error:function(error){
