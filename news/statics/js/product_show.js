@@ -26,7 +26,7 @@ $(function(){
             var D = date.getDate() + ' '; 
             var YMD=Y+M+D;
 
-            var html1 = 
+            let html1 = 
             `
             <div class="header">
             <p class="title">${data.title}</p>
@@ -37,10 +37,10 @@ $(function(){
             
         </div>
             `
-            $('#projectbody').append(html);
+            $('#projectbody').append(html1);
 
             if(data.image!=''){
-                var html2 = 
+                let html2 = 
                 `
             <div class="postbody">
                 <p><img src="${data.image}" style="width:100%" /></p>
@@ -52,9 +52,9 @@ $(function(){
 
             </p> 
                 `
-                $('#projectbody').append(html);
+                $('#projectbody').append(html2);
             }else{
-                var html2 = 
+               let html2 = 
                 `
                 <div class="postbody">
                     <p>${data.text}</p>
@@ -64,7 +64,7 @@ $(function(){
 
                 </p> 
                 `
-                $('#projectbody').append(html);
+                $('#projectbody').append(html2);
             }
             $.ajax({
                 type: 'GET',
@@ -75,12 +75,12 @@ $(function(){
                 dataType: 'JSON',
                 success: function(talk){
                     console.log(talk);
-                        var html3 = 
+                        let html3 = 
                         `
                         <p style="text-align: right; font-size:14px;">${talk.username}</p>
                         <p style="text-align: right; font-size:14px;">${YMD}</p>
                         `
-                        $('#author').append(html);
+                        $('#author').append(html3);
                 },
                 error:function(error){
                     console.log(error);
