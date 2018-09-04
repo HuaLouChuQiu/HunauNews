@@ -1,0 +1,10 @@
+#projecttags a {
+    float: left;
+    font-size: 13px;
+    color: #fff;
+    padding: 5px 10px;
+    background: #2495e4;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    cursor: none;
+}
