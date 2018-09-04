@@ -78,7 +78,7 @@ $(function(){
                     // 作者
                         let html3 = 
                         `
-                        <p style="text-align: right; font-size:14px;">${talk.username}</p>
+                        <p style="text-align: right; font-size:14px;">${talk}</p>
                         <p style="text-align: right; font-size:14px;">${YMD}</p>
                         `
                         $('#author').append(html3);

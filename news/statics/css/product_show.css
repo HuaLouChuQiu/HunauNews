@@ -12,3 +12,12 @@
     width: 820px;
     height: auto;
 }
+.postbody p {
+    text-indent: 2em;
+    line-height: 30px;
+    font-size: 15px;
+}
+#projectinfo .header p {
+    text-align: left;
+    text-indent: 2em;
+}
