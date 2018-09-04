@@ -144,4 +144,56 @@ $(function(){
         }
         
       });
+    //   展示评论
+    $.ajax({
+        type: 'GET',
+        url: '../../../news/showCommentByNewsId',
+        data:{
+            news_id:news_id
+        },
+        dataType: 'JSON',
+        success: function(data){
+            console.log(data);
+            if(data.length == ''){
+                let html5 = 
+                `
+                <div class="comment-show-con clearplfix">
+                <div class="comment-show-con-list pull-left clearplfix">
+                    <p class="meiyou">暂无评论</p>
+                </div>
+            </div>
+                `
+            }else{
+                for(var i=0;i<data.length;i++){
+                    let html5 = 
+                    `
+                    <div class="comment-show-con clearplfix">
+                    <div class="comment-show-con-img pull-left"><img src="statics/images/header-img-comment_03.png" alt=""></div>
+                    <div class="comment-show-con-list pull-left clearplfix">
+                        <div class="pl-text clearplfix">
+                            <a href="#" class="comment-size-name">张三 : </a>
+                            <span class="my-pl-con">&nbsp;来啊 造作啊!</span>
+                        </div>
+                        <div class="date-dz">
+                            <span class="date-dz-left pull-left comment-time">2017-5-2 11:11:39</span>
+                            <div class="date-dz-right pull-right comment-pl-block">
+                                <a href="javascript:;" class="removeBlock">删除</a>
+                                 <a href="javascript:;" class="date-dz-pl pl-hf hf-con-block pull-left">回复</a> 
+                                 <span class="pull-left date-dz-line">|</span> 
+                                <a href="javascript:;" class="date-dz-z pull-left"><i class="date-dz-z-click-red"></i>赞 (<i class="z-num">666</i>)</a>
+                            </div>
+                        </div>
+                        <div class="hf-list-con"></div>
+                    </div>
+                </div> 
+                    `
+                }
+                $('.comment-show').append(html5);
+            }
+        },
+        error:function(error){
+            console.log(error);
+        }
+        
+      });
 })
