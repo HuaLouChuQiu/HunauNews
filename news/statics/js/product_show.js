@@ -41,7 +41,7 @@ $(function(){
                 let html4 = 
                 `
                 <div class="projectitem">
-                <a href="#" target="_blank">
+                <a href="product_show.html?news_id=${data[i].news_id}&class_id=${data[i].class_id}">
                     <span class="propost_img"><img src="${data[i].image}"/></span>
                     <div class="project_info">
                         <div>
