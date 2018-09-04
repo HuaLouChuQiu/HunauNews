@@ -202,7 +202,7 @@ $(function(){
                             `
                             <a href="javascript:void(0);" class="comment-size-name">${talk} : </a>
                             `
-                            $('.pl-text').append(html6);
+                            $('.pl-text').prepend(html6);
                         },
                         error:function(error){
                             console.log(error);
