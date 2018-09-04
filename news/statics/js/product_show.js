@@ -30,7 +30,7 @@ $(function(){
                 var html = 
                 `
             <div class="postbody">
-                <p><img src="${data.image}" /></p>
+                <p><img src="${data.image}" style="width:100%" /></p>
                 <hr/>
                 <p>${data.text}</p>
                 <p><br /></p>
