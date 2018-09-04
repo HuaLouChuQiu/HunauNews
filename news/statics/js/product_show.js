@@ -37,7 +37,7 @@ $(function(){
             
         </div>
             `
-            $('#projectbody').append(html1);
+            $('#projectih').append(html1);
 
             if(data.image!=''){
                 let html2 = 

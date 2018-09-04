@@ -6,7 +6,7 @@
     background: #2495e4;
     margin-right: 5px;
     margin-bottom: 5px;
-    cursor: none;
+    cursor: default;
 }
 #commentAll{
     width: 820px;
