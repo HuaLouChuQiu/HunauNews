@@ -33,3 +33,9 @@
     text-align: left;
     transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
 }
+#indexPage #mnews a.more {
+    top: -495px;
+    left: 125px;
+    margin-bottom: 0;
+    margin-top: 55px;
+}
