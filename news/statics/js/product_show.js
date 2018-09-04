@@ -57,7 +57,7 @@ $(function(){
                let html2 = 
                 `
                 <div class="postbody">
-                    <p>${data.text}</p>
+                    <p style="text-indent: 2em;>${data.text}</p>
                     <p><br /></p>
                 </div>
                 <p id="author" style="margin-top:30px; margin-bottom:10px;">

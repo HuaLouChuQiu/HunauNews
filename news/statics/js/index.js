@@ -58,7 +58,7 @@ $(function(){
                 `
                 <a href="#" target="_blank">
                 <p class="service_img">
-                    <img src="statics/images/news (81).png" width="320" height="120" alt="" />
+                    <img src="${data[i].image}" width="320" height="120" alt="" />
                 </p>
                 <div class="service_info">
                     <p class="title">${data[i].title}</p>
@@ -91,7 +91,7 @@ $(function(){
                 var oMD=oY+oM+oD;
                 let html = 
                 `
-                <div class="project_img"><img src="statics/images/news (57).png" alt="" width="650" height="385" /></div>
+                <div class="project_img"><img src="${data[i].image}" alt="" width="650" height="385" /></div>
                 <div class="project_info">
                     <div>
                         <p class="title">${data[i].title}</p>
