@@ -37,7 +37,7 @@ $(function(){
         dataType: 'JSON',
         success: function(data){
             console.log(data);
-            for(var i=0;i<data.length;i++)
+            for(var i=0;i<data.length;i++){
                 let html4 = 
                 `
                 <div class="projectitem">
@@ -53,6 +53,7 @@ $(function(){
             </div>
                 `
                 $('#projectib').append(html4);
+            }
         },
         error:function(error){
             console.log(error);
