@@ -45,7 +45,7 @@ $(function(){
                     <span class="propost_img"><img src="${data[i].image}"/></span>
                     <div class="project_info">
                         <div>
-                            <p class="title">${data[i].image}</p>
+                            <p class="title">${data[i].title}</p>
                             <p class="subtitle">浏览量&nbsp; <span>${data[i].frequency}</p>
                         </div>
                     </div>
