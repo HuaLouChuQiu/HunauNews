@@ -9,8 +9,56 @@ $(function(){
     } 
     
     var news_id = getUrlParam('news_id');
+    var class_id = getUrlParam('class_id');
     console.log(news_id);
+    console.log(class_id);
+    if(class_id == 1){
+        $('#leiBie').text('综合要闻')
+    }else if(class_id == 1){
+        $('#leiBie').text('媒体湘农')
+    }else if(class_id == 2){
+        $('#leiBie').text('视频新闻')
+    }else if(class_id == 3){
+        $('#leiBie').text('学院动态')
+    }else if(class_id == 4){
+        $('#leiBie').text('理论教育')
+    }else if(class_id == 5){
+        $('#leiBie').text('专题报道')
+    } 
 
+    //推荐
+    $.ajax({
+        type: 'GET',
+        url: '../../../news/findNameById',
+        data:{
+            class_id:class_id,
+            page:1
+        },
+        dataType: 'JSON',
+        success: function(data){
+            console.log(data);
+            for(var i=0;i<data.length;i++)
+                let html = 
+                `
+                <div class="projectitem">
+                <a href="#" target="_blank">
+                    <span class="propost_img"><img src="${data[i].image}"/></span>
+                    <div class="project_info">
+                        <div>
+                            <p class="title">${data[i].image}</p>
+                            <p class="subtitle">浏览量&nbsp; <span>${data[i].frequency}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                `
+                $('#projectib').append(html);
+        },
+        error:function(error){
+            console.log(error);
+        }
+        
+      });
     $.ajax({
         type: 'GET',
         url: '../../../news/showNewsById',
