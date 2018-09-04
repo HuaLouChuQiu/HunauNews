@@ -163,6 +163,7 @@ $(function(){
                 </div>
             </div>
                 `
+                $('.comment-show').append(html5);
             }else{
                 for(var i=0;i<data.length;i++){
                     let html5 = 
@@ -187,8 +188,9 @@ $(function(){
                     </div>
                 </div> 
                     `
+                    $('.comment-show').append(html5);
                 }
-                $('.comment-show').append(html5);
+                
             }
         },
         error:function(error){

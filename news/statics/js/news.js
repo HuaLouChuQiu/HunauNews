@@ -19,7 +19,7 @@ $(function(){
                 let html = 
                 `
                 <div class="wow newstitem left">
-                <a class="newscontent" target="_blank" href="news_detail.html">
+                <a class="newscontent" target="_blank" href="product_show.html?news_id=${data[i].news_id}&class_id=${data[i].class_id}">
                     <div class="news_wrapper">
                         <div class="newsbody">
                             <p class="date"><span class="md">浏览量<span>${data[i].frequency}</span></span><span class="year">${MD}</span></p>
@@ -30,7 +30,7 @@ $(function(){
                     </div>
                     <img class="newsimg"  src="${data[i].image}"/>
                 </a>
-                <a href="news_detail.html" target="_blank" class="details">more<i class="fa fa-angle-right"></i></a>
+                <a href="product_show.html?news_id=${data[i].news_id}&class_id=${data[i].class_id}" target="_blank" class="details">more<i class="fa fa-angle-right"></i></a>
             </div>
                 `
                
