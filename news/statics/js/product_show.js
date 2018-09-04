@@ -72,7 +72,7 @@ $(function(){
                 data:{
                     user_id:data.user_id
                 },
-                dataType: 'JSON',
+                dataType: 'text',
                 success: function(talk){
                     console.log(talk);
                     // 作者
