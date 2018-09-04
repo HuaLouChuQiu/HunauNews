@@ -31,7 +31,8 @@ $(function () {
         var oSize = $(this).siblings('.flex-text-wrap').find('.comment-input').val();
         console.log(oSize);
         //动态创建评论模块
-        oHtml = '<div class="comment-show-con clearplfix"><div class="comment-show-con-img pull-left"><img src="images/header-img-comment_03.png" alt=""></div> <div class="comment-show-con-list pull-left clearplfix"><div class="pl-text clearplfix"> <a href="#" class="comment-size-name">David Beckham : </a> <span class="my-pl-con">&nbsp;'+ oSize +'</span> </div> <div class="date-dz"> <span class="date-dz-left pull-left comment-time">'+now+'</span> <div class="date-dz-right pull-right comment-pl-block"><a href="javascript:;" class="removeBlock">删除</a> <a href="javascript:;" class="date-dz-pl pl-hf hf-con-block pull-left">回复</a> <span class="pull-left date-dz-line">|</span> <a href="javascript:;" class="date-dz-z pull-left"><i class="date-dz-z-click-red"></i>赞 (<i class="z-num">666</i>)</a> </div> </div><div class="hf-list-con"></div></div> </div>';
+        oHtml = 
+        '<div class="comment-show-con clearplfix"><div class="comment-show-con-img pull-left"><img src="images/header-img-comment_03.png" alt=""></div><div class="comment-show-con-list pull-left clearplfix"><div class="pl-text clearplfix"><a href="#" class="comment-size-name">David Beckham : </a><span class="my-pl-con">&nbsp;'+ oSize +'</span></div><div class="date-dz"><span class="date-dz-left pull-left comment-time">'+now+'</span><div class="date-dz-right pull-right comment-pl-block"><a href="javascript:;" class="removeBlock">删除</a><a href="javascript:;" class="date-dz-z pull-left"><i class="date-dz-z-click-red"></i>赞 (<i class="z-num">666</i>)</a> </div> </div><div class="hf-list-con"></div></div> </div>';
         if(oSize.replace(/(^\s*)|(\s*$)/g, "") != ''){
             $(this).parents('.reviewArea ').siblings('.comment-show').prepend(oHtml);
             $(this).siblings('.flex-text-wrap').find('.comment-input').prop('value','').siblings('pre').find('span').text('');
@@ -39,27 +40,27 @@ $(function () {
     });
 
     // 点击回复动态创建回复块
-    $('.comment-show').on('click','.pl-hf',function(){
-        //获取回复人的名字
-        var fhName = $(this).parents('.date-dz-right').parents('.date-dz').siblings('.pl-text').find('.comment-size-name').html();
-        //回复@
-        var fhN = '回复@'+fhName;
-        //var oInput = $(this).parents('.date-dz-right').parents('.date-dz').siblings('.hf-con');
-        var fhHtml = '<div class="hf-con pull-left"> <textarea class="contentpl comment-input hf-input" placeholder="" onkeyup="keyUP(this)"></textarea> <a href="javascript:;" class="hf-pl">评论</a></div>';
-        //显示回复
-        if($(this).is('.hf-con-block')){
-            $(this).parents('.date-dz-right').parents('.date-dz').append(fhHtml);
-            $(this).removeClass('hf-con-block');
-            $('.contentpl').flexText();
-            $(this).parents('.date-dz-right').siblings('.hf-con').find('.pre').css('padding','6px 15px');
-            //console.log($(this).parents('.date-dz-right').siblings('.hf-con').find('.pre'))
-            //input框自动聚焦
-            $(this).parents('.date-dz-right').siblings('.hf-con').find('.hf-input').val('').focus().val(fhN);
-        }else {
-            $(this).addClass('hf-con-block');
-            $(this).parents('.date-dz-right').siblings('.hf-con').remove();
-        }
-    });
+    // $('.comment-show').on('click','.pl-hf',function(){
+    //     //获取回复人的名字
+    //     var fhName = $(this).parents('.date-dz-right').parents('.date-dz').siblings('.pl-text').find('.comment-size-name').html();
+    //     //回复@
+    //     var fhN = '回复@'+fhName;
+    //     //var oInput = $(this).parents('.date-dz-right').parents('.date-dz').siblings('.hf-con');
+    //     var fhHtml = '<div class="hf-con pull-left"> <textarea class="contentpl comment-input hf-input" placeholder="" onkeyup="keyUP(this)"></textarea> <a href="javascript:;" class="hf-pl">评论</a></div>';
+    //     //显示回复
+    //     if($(this).is('.hf-con-block')){
+    //         $(this).parents('.date-dz-right').parents('.date-dz').append(fhHtml);
+    //         $(this).removeClass('hf-con-block');
+    //         $('.contentpl').flexText();
+    //         $(this).parents('.date-dz-right').siblings('.hf-con').find('.pre').css('padding','6px 15px');
+    //         //console.log($(this).parents('.date-dz-right').siblings('.hf-con').find('.pre'))
+    //         //input框自动聚焦
+    //         $(this).parents('.date-dz-right').siblings('.hf-con').find('.hf-input').val('').focus().val(fhN);
+    //     }else {
+    //         $(this).addClass('hf-con-block');
+    //         $(this).parents('.date-dz-right').siblings('.hf-con').remove();
+    //     }
+    // });
 
     // 评论回复块创建
     $('.comment-show').on('click','.hf-pl',function(){
@@ -122,7 +123,7 @@ $(function () {
         if(oT.siblings('.all-pl-con').length >= 1){
             oT.remove();
         }else {
-            // $(this).parents('.date-dz-right').parents('.date-dz').parents('.all-pl-con').parents('.hf-list-con').css('display','none')
+            $(this).parents('.date-dz-right').parents('.date-dz').parents('.all-pl-con').parents('.hf-list-con').css('display','none')
             oT.remove();
         }
         $(this).parents('.date-dz-right').parents('.date-dz').parents('.comment-show-con-list').parents('.comment-show-con').remove();
