@@ -26,8 +26,21 @@ $(function(){
             var D = date.getDate() + ' '; 
             var YMD=Y+M+D;
 
+            let html1 = 
+            `
+            <div class="header">
+            <p class="title">${data.title}</p>
+            <br/>
+            <p class="subtitle"><span>${YMD}</span> &nbsp;浏览量&nbsp; <span>${data.frequency}</span></p>
+            <div class="description">
+            </div>
+            
+        </div>
+            `
+            $('#projectbody').append(html);
+
             if(data.image!=''){
-                var html = 
+                let html = 
                 `
             <div class="postbody">
                 <p><img src="${data.image}" style="width:100%" /></p>
@@ -41,7 +54,7 @@ $(function(){
                 `
                 $('#projectbody').append(html);
             }else{
-                var html = 
+                let html = 
                 `
                 <div class="postbody">
                     <p>${data.text}</p>
@@ -62,7 +75,7 @@ $(function(){
                 dataType: 'JSON',
                 success: function(talk){
                     console.log(talk);
-                        var html = 
+                        let html = 
                         `
                         <p style="text-align: right; font-size:14px;">${talk.username}</p>
                         <p style="text-align: right; font-size:14px;">${YMD}</p>
