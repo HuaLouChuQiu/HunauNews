@@ -175,7 +175,7 @@ $(function(){
                         dataType: 'text',
                         success: function(talk){
                             console.log(talk);
-                            console.log(data);
+                            console.log(data[i]);
                             console.log(data[i].create_time);
                             var oDate = new Date(data[i].create_time);
                             var oY = oDate.getFullYear() + '-';
