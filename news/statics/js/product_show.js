@@ -25,11 +25,11 @@ $(function(){
             var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
             var D = date.getDate() + ' '; 
             var YMD=Y+M+D;
-
+            // 标题
             let html1 = 
             `
             <div class="header">
-            <p class="title">${data.title}</p>
+            <p class="title" stlye="text-indent: 2em;">${data.title}</p>
             <br/>
             <p class="subtitle"><span>${YMD}</span> &nbsp;浏览量&nbsp; <span>${data.frequency}</span></p>
             <div class="description">
@@ -38,14 +38,14 @@ $(function(){
         </div>
             `
             $('#projectih').append(html1);
-
+            // 正文
             if(data.image!=''){
                 let html2 = 
                 `
             <div class="postbody">
                 <p><img src="${data.image}" style="width:100%" /></p>
                 <hr/>
-                <p>${data.text}</p>
+                <p stlye="text-indent: 2em;">${data.text}</p>
                 <p><br /></p>
             </div>
             <p id="author" style="margin-top:30px; margin-bottom:10px;">
@@ -75,6 +75,7 @@ $(function(){
                 dataType: 'JSON',
                 success: function(talk){
                     console.log(talk);
+                    // 作者
                         let html3 = 
                         `
                         <p style="text-align: right; font-size:14px;">${talk.username}</p>
