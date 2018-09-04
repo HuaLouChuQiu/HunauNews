@@ -23,7 +23,7 @@ $(function(){
                 let html = 
                 `
                 <li id="newsitem_0" class="wow newstitem left">
-                <a class="newscontent" target="_blank" href="#">
+                <a class="newscontent" target="_blank" href="product_show.html?news_id=${data[i].news_id}&class_id=${data[i].class_id}">
                     <div class="news_wrapper">
                         <div class="newsbody">
                             <p class="date"><span class="md">${Y}<span>-</span></span><span class="year">${MD}</span></p>
@@ -34,7 +34,7 @@ $(function(){
                     </div>
                     <div class="newsimg" style="background-image:url(statics/images/1482133948355.jpg)"></div>
                 </a>
-                <a href="#" target="_blank" class="details">more<i class="fa fa-angle-right"></i></a>
+                <a href="product_show.html?news_id=${data[i].news_id}&class_id=${data[i].class_id}" target="_blank" class="details">more<i class="fa fa-angle-right"></i></a>
             </li>
                 `
                 $('#rankNews').append(html);
@@ -56,7 +56,7 @@ $(function(){
             for(var i=0;i<data.length;i++){
                 let html = 
                 `
-                <a href="#" target="_blank">
+                <a href="product_show.html?news_id=${data[i].news_id}&class_id=${data[i].class_id}" target="_blank">
                 <p class="service_img">
                     <img src="${data[i].image}" width="320" height="120" alt="" />
                 </p>
@@ -65,7 +65,7 @@ $(function(){
                     <p class="description">${data[i].text}</p>
                 </div>
             </a>
-            <a href="#" target="_blank" class="details">more<i class="fa fa-angle-right"></i></a>
+            <a href="product_show.html?news_id=${data[i].news_id}&class_id=${data[i].class_id}" target="_blank" class="details">more<i class="fa fa-angle-right"></i></a>
                 `
                 $('#serviceitem_0').append(html);
             }
@@ -91,6 +91,7 @@ $(function(){
                 var oMD=oY+oM+oD;
                 let html = 
                 `
+                <a href="product_show.html?news_id=${data[i].news_id}&class_id=${data[i].class_id}" class="projectitem_content" target="_blank">
                 <div class="project_img"><img src="${data[i].image}" alt="" width="650" height="385" /></div>
                 <div class="project_info">
                     <div>
@@ -99,6 +100,7 @@ $(function(){
                         <p class="description">${data[i].text}</p>
                     </div>
                 </div>
+                </a>
                 `
                 $('.projectitem_wrapper').each(function(index,item){
                     // console.log(index)

@@ -44,7 +44,7 @@ $(document).ready(function () {
                     let html = 
                     `
                     <li class="projectitem">
-                    <a href="product_show.html?news_id=${data[i].news_id}" target="_blank">
+                    <a href="product_show.html?news_id=${data[i].news_id}&class_id=${data[i].class_id}" target="_blank">
                         <div class="project_img"><img src="${data[i].image}" width="500" height="320" /></div>
                         <div class="project_info">
                             <div>
@@ -54,7 +54,7 @@ $(document).ready(function () {
                             </div>
                         </div>
                     </a>
-                    <a href="product_show.html?news_id=${data[i].news_id}"  target="_blank" class="details">more<i class="fa fa-angle-right"></i></a>
+                    <a href="product_show.html?news_id=${data[i].news_id}&class_id=${data[i].class_id}"  target="_blank" class="details">more<i class="fa fa-angle-right"></i></a>
                 </li>
                     `
                     $('.content_list').append(html);
