@@ -13,7 +13,7 @@ $(function(){
 
     $.ajax({
         type: 'GET',
-        url: '../../../news/showPeople',
+        url: '../../../news/showNewsById',
         data:{
             news_id:news_id
         },
