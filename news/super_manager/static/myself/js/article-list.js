@@ -138,7 +138,7 @@ $(function () {
                     //审核
                     $('.shenhe').each(function(index,item){
                         $(item).click(function(){
-                            article_shenhe(this,data[index].news_id)
+                            article_shenhe(this,data[index].news_id,,page)
                         })
                     })
                     //删除
@@ -179,49 +179,85 @@ $(function () {
 			});
 			layer.full(index);
         }
-        
-    /*资讯-删除*/
-    function article_del(id,thisPage) {
-        layer.confirm('确认要删除吗？', function (index) {
+        function xigai(url,id,thisPage,tishi,icon){
             $.ajax({
                 type: 'POST',
-                url: '../../../../news/delNews',
+                url: url,
                 data:{
                     news_id:id
                 },
                 dataType: 'json',
                 success: function (data) {
                     // $(obj).parents("tr").remove();
-                    layer.msg('已删除!', { icon: 1, time: 1000 });
-                    console.log(id);
-                    console.log(thisPage);
+                    layer.msg(tishi, { icon: icon, time: 1000 });
                     pages(thisPage);
                 },
                 error: function (data) {
                     console.log(data.msg);
                 },
             });
+        }
+    /*资讯-删除*/
+    function article_del(id,thisPage) {
+        layer.confirm('确认要删除吗？', function (index) {
+            xigai('../../../../news/delNews',id,thisPage,'已删除!',1)
+            // $.ajax({
+            //     type: 'POST',
+            //     url: '../../../../news/delNews',
+            //     data:{
+            //         news_id:id
+            //     },
+            //     dataType: 'json',
+            //     success: function (data) {
+            //         // $(obj).parents("tr").remove();
+            //         layer.msg('已删除!', { icon: 1, time: 1000 });
+            //         console.log(id);
+            //         console.log(thisPage);
+            //         pages(thisPage);
+            //     },
+            //     error: function (data) {
+            //         console.log(data.msg);
+            //     },
+            // });
         });
     }
-
     /*资讯-审核*/
-    function article_shenhe(obj, id) {
+    function article_shenhe(obj,id,thisPage) {
         layer.confirm('审核文章？', {
-            btn: ['通过', '不通过', '取消'],
+            btn: ['通过', '不通过并删除', '取消'],
             shade: false,
             closeBtn: 0
         },
             function () {
+                xigai('../../../../news/passNews',id,thisPage,'已发布!',6)
+                // $.ajax({
+                //     type: 'POST',
+                //     url: '../../../../news/passNews',
+                //     data:{
+                //         news_id:id
+                //     },
+                //     dataType: 'json',
+                //     success: function (data) {
+                //         // $(obj).parents("tr").remove();
+                //         layer.msg('已发布', { icon: 6, time: 1000 });
+                        
+                //         pages(thisPage);
+                //     },
+                //     error: function (data) {
+                //         console.log(data.msg);
+                //     },
+                // });
                 // $(obj).parents("tr").find(".td-manage").prepend('<a class="c-primary" onClick="article_start(this,id)" href="javascript:;" title="申请上线">申请上线</a>');
-                $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已发布</span>');
-                $(obj).remove();
-                layer.msg('已发布', { icon: 6, time: 1000 });
+                // $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已发布</span>');
+                // $(obj).remove();
+                // layer.msg('已发布', { icon: 6, time: 1000 });
             },
-            function () {
+            function () { 
+                xigai('../../../../news/delNews',id,thisPage,'未通过并已删除!',5)              
                 // $(obj).parents("tr").find(".td-manage").prepend('<a class="c-primary" onClick="article_shenqing(this,id)" href="javascript:;" title="申请上线">申请上线</a>');
-                $(obj).parents("tr").find(".td-status").html('<span class="label label-danger radius">未通过</span>');
-                $(obj).remove();
-                layer.msg('未通过', { icon: 5, time: 1000 });
+                // $(obj).parents("tr").find(".td-status").html('<span class="label label-danger radius">未通过</span>');
+                // $(obj).remove();
+                // layer.msg('未通过', { icon: 5, time: 1000 });
             });
     }
 })
