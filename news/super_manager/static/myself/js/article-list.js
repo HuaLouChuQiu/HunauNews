@@ -57,7 +57,7 @@ $(function () {
                     $('.odd').find('.dataTables_empty').css('display:block')
                 }else{
                     // $('.odd').find('.dataTables_empty').css('display:none')
-                    console.log('有数据')
+                    console.log(data.length);
                     for(var i=0;i<data.length;i++){
                         var oDate = new Date(data[i].create_time);
                         var oY = oDate.getFullYear() + '-';
