@@ -140,12 +140,11 @@ $(function () {
                     //删除
                     $('.ml-5').each(function(index,item){
                         $(item).click(function(){
-                            article_del(this,data[index].news_id)
+                            article_del(this,data[index].news_id,page)
                         })
                     })
                     
                 }
-                
                 new pagination({
                     pagination:$('.pagination'),
                     maxPage: 5, //最大页码数,支持奇数，左右对称
@@ -178,7 +177,7 @@ $(function () {
         }
         
     /*资讯-删除*/
-    function article_del(obj, id) {
+    function article_del(obj, id,thisPage) {
         layer.confirm('确认要删除吗？', function (index) {
             $.ajax({
                 type: 'POST',
@@ -187,6 +186,7 @@ $(function () {
                 success: function (data) {
                     $(obj).parents("tr").remove();
                     layer.msg('已删除!', { icon: 1, time: 1000 });
+                    pages(thisPage);
                 },
                 error: function (data) {
                     console.log(data.msg);
