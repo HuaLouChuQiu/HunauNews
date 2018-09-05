@@ -144,7 +144,8 @@ $(function () {
                     //删除
                     $('.ml-5').each(function(index,item){
                         $(item).click(function(){
-                            article_del(this,data[index].news_id,page)
+                            console.log(data[index].news_id);
+                            article_del(data[index].news_id,page)
                         })
                     })
                     
@@ -181,7 +182,7 @@ $(function () {
         }
         
     /*资讯-删除*/
-    function article_del(obj, id,thisPage) {
+    function article_del(id,thisPage) {
         layer.confirm('确认要删除吗？', function (index) {
             $.ajax({
                 type: 'POST',
@@ -190,6 +191,7 @@ $(function () {
                 success: function (data) {
                     // $(obj).parents("tr").remove();
                     layer.msg('已删除!', { icon: 1, time: 1000 });
+                    console.log(id);
                     console.log(thisPage);
                     pages(thisPage);
                 },
