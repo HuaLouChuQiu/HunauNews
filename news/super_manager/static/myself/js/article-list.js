@@ -8,17 +8,17 @@ $(function () {
     //         { "orderable": false, "aTargets": [0, 8] }// 不参与排序的列
     //     ]
     // });
-    new pagination({
-		pagination:$('.pagination'),
-		maxPage: 7, //最大页码数,支持奇数，左右对称
-		startPage: 1,    //默认第一页
-		currentPage: 2,          //当前页码
-		 totalItemCount: 10,    //项目总数,大于0，显示页码总数
-		 totalPageCount: 20,        //总页数
-		callback:function(pageNum){
-			console.info(pageNum);
-		}
-	});
+    // new pagination({
+	// 	pagination:$('.pagination'),
+	// 	maxPage: 7, //最大页码数,支持奇数，左右对称
+	// 	startPage: 1,    //默认第一页
+	// 	currentPage: 2,          //当前页码
+	// 	 totalItemCount: 10,    //项目总数,大于0，显示页码总数
+	// 	 totalPageCount: 20,        //总页数
+	// 	callback:function(pageNum){
+	// 		console.info(pageNum);
+	// 	}
+	// });
     pages(1);
     //获取总页数
     function pages(page){
@@ -50,48 +50,96 @@ $(function () {
             },
             dataType: 'JSON',
             success: function(data){
-                console.log(data);
                 $('.userTbody').empty();
                 $('.pagination').empty();
-                // for(var i=0;i<data.length;i++){
+                console.log(data);
+                if(data=""){
+                    $('.odd').find('.dataTables_empty').css('display:bloke')
+                }else{
+                    $('.odd').find('.dataTables_empty').css('display:none')
+                    for(var i;i<data.length;i++){
+                        var oDate = new Date(data[i].create_time);
+                        var oY = oDate.getFullYear() + '-';
+                        var oM = (oDate.getMonth()+1 < 10 ? '0'+(oDate.getMonth()+1) : oDate.getMonth()+1) + '-';
+                        var oD = oDate.getDate() + ' '; 
+                        var oYMD=oY+oM+oD;
+                        let html =
+                        `
+                        <tr class="text-c">
+                        <td>
+                            <input type="checkbox" value="1" name="opt" id="opt">
+                        </td>
+                        <td>${data[i.news_id]}</td>
+                        <td class="text-l">
+                            <u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang.html','${data[i.news_id]}')" title="查看">${data[i].title}</u>
+                        </td>
+                        <td>${data[i].class_content}</td>
+                        <td>${data[i].username}</td>
+                        <td>${oYMD}</td>
+                        <td>${data[i].frequency}</td>
+                        <td class="td-status">
+                            
+                        </td>
+                        <td class="f-14 td-manage">
+                            
+                        </td>
+                    </tr>
+                        `
+                        $('#userTbody').append(html);
+                        
+                        if(data[i].state == 0){
+                            var html1 = 
+                            `
+                            <span class="label label-success radius">草稿</span>
+                            `
+                            var html2 = 
+                            `
+                            <a style="text-decoration:none" onClick="article_shenhe(this,'10001')" href="javascript:;" title="审核">审核</a>
+							<a style="text-decoration:none" id="myClz" class="ml-5" onClick="article_del(this,'10001')" href="javascript:;" title="删除">
+								<i class="Hui-iconfont">&#xe6e2;</i>
+							</a>
+                            `
+                            
+                        }else{
+                            var html1 = 
+                            `
+                            <span class="label label-success radius">已发布</span>
+                            `
+                            var html2 = 
+                            `
+                            <a style="text-decoration:none" id="myClz" class="ml-5" onClick="article_del(this,'${data[i.news_id]}')" href="javascript:;" title="删除">
+                            <i class="Hui-iconfont">&#xe6e2;</i>
+                        </a>
+                            `
+                        }
+                        $('.td-status').each(function(index,item){
+                            if(index == i){
+                                $(item).append(html1);
+                            }
+                        })
+                        $('.td-manage').each(function(index,item){
+                            if(index == i){
+                                $(item).append(html2);
+                            }
+                        })
+                    }
+                    
+                }
+                
+                
 
-                //     var date = new Date(data[i].create_time);
-                //     // var date = new Date(data[i].create_time).Format("yyyy-MM-dd");
-                //     var Y = date.getFullYear() + '-';
-                //     var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
-                //     var D = date.getDate() + ' '; 
-                //     var YMD=Y+M+D;
-    
-                //     let html = 
-                //     `
-                //     <li class="projectitem">
-                //     <a href="product_show.html?news_id=${data[i].news_id}&class_id=${data[i].class_id}" target="_blank">
-                //         <div class="project_img"><img src="${data[i].image}" width="500" height="320" /></div>
-                //         <div class="project_info">
-                //             <div>
-                //                 <p class="title">${data[i].title}</p>
-                //                 <p class="subtitle">${YMD}</p>
-                //                 <p class="description hide">${data[i].text}</p>
-                //             </div>
-                //         </div>
-                //     </a>
-                //     <a href="product_show.html?news_id=${data[i].news_id}&class_id=${data[i].class_id}"  target="_blank" class="details">more<i class="fa fa-angle-right"></i></a>
-                // </li>
-                //     `
-                //     $('.content_list').append(html);
-                // }
-                // new pagination({
-                //     pagination:$('.pagination'),
-                //     maxPage: 7, //最大页码数,支持奇数，左右对称
-                //     startPage: 1,    //默认第一页
-                //     currentPage: page,          //当前页码
-                //     totalItemCount: data.length,    //项目总数,大于0，显示页码总数
-                //     totalPageCount: allPages,        //总页数
-                //     callback:function(pageNum){
-                //         console.log(pageNum)
-                //         pages(number,pageNum)
-                //     }
-                // });
+                new pagination({
+                    pagination:$('.pagination'),
+                    maxPage: 7, //最大页码数,支持奇数，左右对称
+                    startPage: 1,    //默认第一页
+                    currentPage: page,          //当前页码
+                    totalItemCount: data.length,    //项目总数,大于0，显示页码总数
+                    totalPageCount: allPages,        //总页数
+                    callback:function(pageNum){
+                        console.log(pageNum)
+                        pages(pageNum);
+                    }
+                });
 
             },
             error:function(error){
@@ -100,55 +148,7 @@ $(function () {
             
         });
     }
-    let html = 
-    `
-    <tr class="text-c">
-    <td>
-        <input type="checkbox" value="1" name="opt" id="opt">
-    </td>
-    <td>10001</td>
-    <td class="text-l">
-        <u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang.html','10001')" title="查看">资讯标题</u>
-    </td>
-    <td>头条新闻</td>
-    <td>H-ui</td>
-    <td>2014-6-11 11:11:42</td>
-    <td>21212</td>
-    <td class="td-status">
-        <span class="label label-success radius">已发布</span>
-    </td>
-    <td class="f-14 td-manage">
-        <!-- <a style="text-decoration:none" onClick="article_stop(this,'10001')" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>  -->
-        <a style="text-decoration:none" id="myClz" class="ml-5" onClick="article_del(this,'10001')" href="javascript:;" title="删除">
-            <i class="Hui-iconfont">&#xe6e2;</i>
-        </a>
-    </td>
-</tr>
-<tr class="text-c">
-    <td>
-        <input type="checkbox" value="2" name="opt" id="opt">
-    </td>
-    <td>10002</td>
-    <td class="text-l">
-        <u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang.html','10002')" title="查看">资讯标题</u>
-    </td>
-    <td>综合要闻</td>
-    <td>H-ui</td>
-    <td>2014-6-11 11:11:42</td>
-    <td>21212</td>
-    <td class="td-status">
-        <span class="label label-success radius">草稿</span>
-    </td>
-    <td class="f-14 td-manage">
-        <a style="text-decoration:none" onClick="article_shenhe(this,'10001')" href="javascript:;" title="审核">审核</a>
-        <a style="text-decoration:none" id="myClz" class="ml-5" onClick="article_del(this,'10001')" href="javascript:;" title="删除">
-            <i class="Hui-iconfont">&#xe6e2;</i>
-        </a>
-    </td>
-</tr>
-    `
-    $('.odd').find('.dataTables_empty').css('display:none')
-    $('#userTbody').append(html)
+   
     /*资讯-编辑*/
 		function article_edit(title, url, id, w, h) {
 			var index = layer.open({
