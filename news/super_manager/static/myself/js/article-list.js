@@ -138,7 +138,7 @@ $(function () {
                     //审核
                     $('.shenhe').each(function(index,item){
                         $(item).click(function(){
-                            article_shenhe(this,data[index].news_id,,page)
+                            article_shenhe(this,data[index].news_id,page);
                         })
                     })
                     //删除
