@@ -100,8 +100,8 @@ $(function () {
                             `
                             var html2 = 
                             `
-                            <a style="text-decoration:none" class="shenhe" onClick="article_shenhe(this,'10001')" href="javascript:;" title="审核">审核</a>
-							<a style="text-decoration:none" id="myClz" class="ml-5" onClick="article_del(this,'10001')" href="javascript:;" title="删除">
+                            <a style="text-decoration:none" class="shenhe" href="javascript:;" title="审核">审核</a>
+							<a style="text-decoration:none" id="myClz" class="ml-5" href="javascript:;" title="删除">
 								<i class="Hui-iconfont">&#xe6e2;</i>
 							</a>
                             `
@@ -138,7 +138,7 @@ $(function () {
                     //审核
                     $('.shenhe').each(function(index,item){
                         $(item).click(function(){
-                            article_edit('查看','article-zhang.html',data[index].news_id)
+                            article_shenhe(this,data[index].news_id)
                         })
                     })
                     //删除
