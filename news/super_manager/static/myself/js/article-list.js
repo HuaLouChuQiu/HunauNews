@@ -24,7 +24,7 @@ $(function () {
     function pages(page){
         $.ajax({
             type: 'GET',
-            url: '../../../news/showPage',
+            url: '../../../../news/showPage',
             data:{
                 class_id:0,
             },
@@ -38,12 +38,12 @@ $(function () {
             }
         })
     }
-    
+
     //获取各个类别的新闻
     function manage(page,allPages){
         $.ajax({
             type: 'GET',
-            url: '../../../news/manageNews',
+            url: '../../../../news/manageNews',
             data:{
                 size:10,
                 page:page
