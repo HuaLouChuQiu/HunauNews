@@ -209,7 +209,7 @@ $(function () {
     //搜索
     $('#confirm').click(function(){
         var oText = $('#search').val()
-        console.log('#search')
+        console.log(oText)
         searchPages(oText,1);
         function searchPages(oText,page){
             $.ajax({
