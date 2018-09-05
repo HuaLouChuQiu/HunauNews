@@ -65,7 +65,7 @@ $(function () {
                         var oM = (oDate.getMonth()+1 < 10 ? '0'+(oDate.getMonth()+1) : oDate.getMonth()+1) + '-';
                         var oD = oDate.getDate() + ' '; 
                         var oYMD=oY+oM+oD;
-                        
+
                         var html =
                         `
                         <tr class="text-c">
@@ -131,7 +131,7 @@ $(function () {
                 
                 new pagination({
                     pagination:$('.pagination'),
-                    maxPage: 4, //最大页码数,支持奇数，左右对称
+                    maxPage: 5, //最大页码数,支持奇数，左右对称
                     startPage: 1,    //默认第一页
                     currentPage: page,          //当前页码
                     totalItemCount: data.length,    //项目总数,大于0，显示页码总数
