@@ -38,6 +38,7 @@ $(function () {
             }
         })
     }
+    
     //获取各个类别的新闻
     function manage(page,allPages){
         $.ajax({
