@@ -182,7 +182,7 @@ $(function () {
         layer.confirm('确认要删除吗？', function (index) {
             $.ajax({
                 type: 'POST',
-                url: '../../../../news/manageNews',
+                url: '../../../../news/delNews',
                 dataType: 'json',
                 success: function (data) {
                     $(obj).parents("tr").remove();
