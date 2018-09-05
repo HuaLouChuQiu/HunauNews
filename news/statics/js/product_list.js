@@ -7,6 +7,7 @@ $(document).ready(function () {
             url: '../../../news/showPage',
             data:{
                 class_id:number,
+                size:12
             },
             dataType: 'JSON',
             success: function(allPages){
