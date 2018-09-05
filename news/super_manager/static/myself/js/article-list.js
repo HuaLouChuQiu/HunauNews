@@ -54,9 +54,9 @@ $(function () {
                 $('.pagination').empty();
                 console.log(data);
                 if(data=""){
-                    $('.odd').find('.dataTables_empty').css('display:bloke')
+                    $('.odd').find('.dataTables_empty').css('display:block')
                 }else{
-                    $('.odd').find('.dataTables_empty').css('display:none')
+                    // $('.odd').find('.dataTables_empty').css('display:none')
                     console.log('有数据')
                     for(var i=0;i<data.length;i++){
                         var oDate = new Date(data[i].create_time);
@@ -65,7 +65,7 @@ $(function () {
                         var oD = oDate.getDate() + ' '; 
                         var oYMD=oY+oM+oD;
                         console.log(data[i]);
-                        let html =
+                        var html =
                         `
                         <tr class="text-c">
                         <td>
