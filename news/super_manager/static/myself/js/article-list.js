@@ -50,14 +50,15 @@ $(function () {
             },
             dataType: 'JSON',
             success: function(data){
-                $('.userTbody').empty();
+                $('#userTbody').empty();
                 $('.pagination').empty();
                 console.log(data);
                 if(data=""){
                     $('.odd').find('.dataTables_empty').css('display:bloke')
                 }else{
+                    console.log('有数据')
                     $('.odd').find('.dataTables_empty').css('display:none')
-                    for(var i;i<data.length;i++){
+                    for(var i=0;i<data.length;i++){
                         var oDate = new Date(data[i].create_time);
                         var oY = oDate.getFullYear() + '-';
                         var oM = (oDate.getMonth()+1 < 10 ? '0'+(oDate.getMonth()+1) : oDate.getMonth()+1) + '-';
@@ -69,7 +70,7 @@ $(function () {
                         <td>
                             <input type="checkbox" value="1" name="opt" id="opt">
                         </td>
-                        <td>${data[i.news_id]}</td>
+                        <td>${data[i].news_id}</td>
                         <td class="text-l">
                             <u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang.html','${data[i.news_id]}')" title="查看">${data[i].title}</u>
                         </td>
