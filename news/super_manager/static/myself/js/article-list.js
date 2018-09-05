@@ -126,8 +126,6 @@ $(function () {
                     
                 }
                 
-                
-
                 new pagination({
                     pagination:$('.pagination'),
                     maxPage: 7, //最大页码数,支持奇数，左右对称
