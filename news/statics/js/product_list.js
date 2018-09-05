@@ -15,7 +15,7 @@ $(document).ready(function () {
                 leibie(number,page,allPages);
             },
             error:function(error){
-
+                console.log(error)
             }
         })
     }
