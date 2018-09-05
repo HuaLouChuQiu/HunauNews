@@ -220,7 +220,8 @@ $(function () {
                 },
                 dataType: 'JSON',
                 success: function(allPages){
-                    console.log(allPages);
+                    console.log("zong="+allPages);
+                    console.log("dangqian="+page);
                     if(page>allPages){
                         searchManage(allPages,allPages);
                     }else{
@@ -348,6 +349,7 @@ $(function () {
                         totalPageCount: allPages,        //总页数
                         callback:function(pageNum){
                             console.log(pageNum)
+                            console.log(oText);
                             searchPages(oText,pageNum);
                         }
                     });
