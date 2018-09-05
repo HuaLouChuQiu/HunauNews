@@ -223,9 +223,9 @@ $(function () {
                     console.log("zong="+allPages);
                     console.log("dangqian="+page);
                     if(page>allPages){
-                        searchManage(allPages,allPages);
+                        searchManage(oText,allPages,allPages);
                     }else{
-                        searchManage(page,allPages);
+                        searchManage(oText,page,allPages);
                     }
                 },
                 error:function(error){
