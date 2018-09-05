@@ -172,11 +172,13 @@ $(function () {
                 success: function (data) {
                     // $(obj).parents("tr").remove();
                     layer.msg(tishi, { icon: icon, time: 1000 });
-                    if(oText == ''){
+                    // var oText = $('#search').val()
+                    console.log(oText);
+                    // if(oText == ''){
                         pages(thisPage);
-                    }else{
-                        searchPages(oText,thisPage); 
-                    }
+                    // }else{
+                    //     searchPages(oText,thisPage); 
+                    // }
                 },
                 error: function (data) {
                     console.log(data.msg);
