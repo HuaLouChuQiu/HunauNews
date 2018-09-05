@@ -56,7 +56,7 @@ $(function () {
                 if(data == ""){
                     $('.odd').find('.dataTables_empty').css('display:block')
                 }else{
-                    // $('.odd').find('.dataTables_empty').css('display:none')
+                    $('.odd').find('.dataTables_empty').css('display:none')
 
                     console.log(data.length);
                     for(var i=0;i<data.length;i++){
@@ -184,7 +184,7 @@ $(function () {
                 url: '../../../../news/delNews',
                 dataType: 'json',
                 success: function (data) {
-                    $(obj).parents("tr").remove();
+                    // $(obj).parents("tr").remove();
                     layer.msg('已删除!', { icon: 1, time: 1000 });
                     pages(thisPage);
                 },
