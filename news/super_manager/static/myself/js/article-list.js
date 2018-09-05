@@ -26,7 +26,7 @@ $(function () {
             type: 'GET',
             url: '../../../news/showPage',
             data:{
-                class_id:number,
+                class_id:0,
             },
             dataType: 'JSON',
             success: function(allPages){
