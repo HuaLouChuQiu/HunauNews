@@ -32,7 +32,11 @@ $(function () {
             dataType: 'JSON',
             success: function(allPages){
                 console.log(allPages);
-                manage(page,allPages);
+                if(page>allPages){
+                    manage(allPages,allPages);
+                }else{
+                    manage(page,allPages);
+                }
             },
             error:function(error){
 
