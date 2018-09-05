@@ -236,7 +236,7 @@ $(function () {
         function searchManage(oText,page,allPages){
             $.ajax({
                 type: 'GET',
-                url: '../../../../news/manageNews',
+                url: '../../../../news/queryByLikeTitle',
                 data:{
                     index:oText,
                     size:10,
