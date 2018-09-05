@@ -24,7 +24,7 @@ $(function () {
     function pages(page){
         $.ajax({
             type: 'GET',
-            url: '../../../../news/showPage',
+            url: '../../../../news/showPage1',
             data:{
                 class_id:0,
             },
@@ -38,7 +38,6 @@ $(function () {
             }
         })
     }
-
     //获取各个类别的新闻
     function manage(page,allPages){
         $.ajax({
@@ -74,7 +73,7 @@ $(function () {
                         </td>
                         <td>${data[i].news_id}</td>
                         <td class="text-l">
-                            <u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang.html','${data[i.news_id]}')" title="查看">${data[i].title}</u>
+                            <u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang.html','${data[i].news_id}')" title="查看">${data[i].title}</u>
                         </td>
                         <td>${data[i].class_content}</td>
                         <td>${data[i].username}</td>
@@ -89,7 +88,6 @@ $(function () {
                     </tr>
                         `
                         $('#userTbody').append(html);
-                        
                         if(data[i].state == 0){
                             var html1 = 
                             `
@@ -97,7 +95,7 @@ $(function () {
                             `
                             var html2 = 
                             `
-                            <a style="text-decoration:none" onClick="article_shenhe(this,'10001')" href="javascript:;" title="审核">审核</a>
+                            <a style="text-decoration:none" class="shenhe" onClick="article_shenhe(this,'10001')" href="javascript:;" title="审核">审核</a>
 							<a style="text-decoration:none" id="myClz" class="ml-5" onClick="article_del(this,'10001')" href="javascript:;" title="删除">
 								<i class="Hui-iconfont">&#xe6e2;</i>
 							</a>
@@ -110,7 +108,7 @@ $(function () {
                             `
                             var html2 = 
                             `
-                            <a style="text-decoration:none" id="myClz" class="ml-5" onClick="article_del(this,'${data[i.news_id]}')" href="javascript:;" title="删除">
+                            <a style="text-decoration:none" id="myClz" class="ml-5" href="javascript:;" title="删除">
                             <i class="Hui-iconfont">&#xe6e2;</i>
                         </a>
                             `
@@ -126,6 +124,24 @@ $(function () {
                             }
                         })
                     }
+                    //查看
+                    $('.text-primary').each(function(index,item){
+                        $(item).click(function(){
+                            article_edit('查看','article-zhang.html',data[index].news_id)
+                        })
+                    })
+                    //审核
+                    $('.shenhe').each(function(index,item){
+                        $(item).click(function(){
+                            article_edit('查看','article-zhang.html',data[index].news_id)
+                        })
+                    })
+                    //删除
+                    $('.ml-5').each(function(index,item){
+                        $(item).click(function(){
+                            article_del(this,data[index].news_id)
+                        })
+                    })
                     
                 }
                 
@@ -159,11 +175,7 @@ $(function () {
 			});
 			layer.full(index);
         }
-        $('.text-primary').each(function(index,item){
-            $(item).click(function(){
-                article_edit('查看','article-zhang.html','10002')
-            })
-        })
+        
     /*资讯-删除*/
     function article_del(obj, id) {
         layer.confirm('确认要删除吗？', function (index) {
