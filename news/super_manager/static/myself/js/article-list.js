@@ -144,7 +144,6 @@ $(function () {
                     //删除
                     $('.ml-5').each(function(index,item){
                         $(item).click(function(){
-                            console.log(data[index].news_id);
                             article_del(data[index].news_id,page)
                         })
                     })
@@ -187,6 +186,9 @@ $(function () {
             $.ajax({
                 type: 'POST',
                 url: '../../../../news/delNews',
+                data:{
+                    news_id:id
+                },
                 dataType: 'json',
                 success: function (data) {
                     // $(obj).parents("tr").remove();
