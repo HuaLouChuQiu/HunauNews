@@ -19,7 +19,7 @@ $(function () {
 			console.info(pageNum);
 		}
 	});
-    pages(0,1);
+    pages(1);
     //获取总页数
     function pages(page){
         $.ajax({
