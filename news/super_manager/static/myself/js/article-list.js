@@ -190,6 +190,7 @@ $(function () {
                 success: function (data) {
                     // $(obj).parents("tr").remove();
                     layer.msg('已删除!', { icon: 1, time: 1000 });
+                    console.log(thisPage);
                     pages(thisPage);
                 },
                 error: function (data) {
