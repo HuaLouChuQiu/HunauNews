@@ -131,7 +131,7 @@ $(function () {
                 
                 new pagination({
                     pagination:$('.pagination'),
-                    maxPage: 7, //最大页码数,支持奇数，左右对称
+                    maxPage: 4, //最大页码数,支持奇数，左右对称
                     startPage: 1,    //默认第一页
                     currentPage: page,          //当前页码
                     totalItemCount: data.length,    //项目总数,大于0，显示页码总数
