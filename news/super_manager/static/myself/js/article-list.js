@@ -24,9 +24,10 @@ $(function () {
     function pages(page){
         $.ajax({
             type: 'GET',
-            url: '../../../../news/showPage1',
+            url: '../../../../news/showPage',
             data:{
                 class_id:0,
+                size:10
             },
             dataType: 'JSON',
             success: function(allPages){
