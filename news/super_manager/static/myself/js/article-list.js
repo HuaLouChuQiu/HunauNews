@@ -65,7 +65,7 @@ $(function () {
                         var oM = (oDate.getMonth()+1 < 10 ? '0'+(oDate.getMonth()+1) : oDate.getMonth()+1) + '-';
                         var oD = oDate.getDate() + ' '; 
                         var oYMD=oY+oM+oD;
-                        console.log(data[i]);
+                        
                         var html =
                         `
                         <tr class="text-c">
