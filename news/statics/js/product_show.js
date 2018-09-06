@@ -148,6 +148,7 @@ $(function(){
       var oUserId = $.session.get('userID');
       var oUserName = $.session.get('username');
     $('.plBtn').click(function(){
+        console.log(news_id);
         var oTextarea = $('#textarea').val();
         if(oTextarea == ''){
             alert('您还没有写评论哦...');
@@ -162,10 +163,11 @@ $(function(){
                 },
                 dataType: 'JSON',
                 success: function(data){
+                    console.log(data);
                     show(); 
                 },
                 error:function(error){
-
+                    console.log(error);
                 }
             })
         }
@@ -218,6 +220,7 @@ $(function(){
                     </div> 
                         `
                         $('.comment-show').append(html5);
+                        //名字
                         $.ajax({
                             type: 'post',
                             url: '../../../news/findNameById',
