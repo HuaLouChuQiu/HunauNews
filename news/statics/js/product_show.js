@@ -253,7 +253,7 @@ $(function(){
                                 `
                                 $('.pl-text').each(function(index,item){
                                     if(i == index){
-                                        $('.pl-text').prepend(html6);
+                                        $(item).prepend(html6);
                                     }
                                 })
                                 
