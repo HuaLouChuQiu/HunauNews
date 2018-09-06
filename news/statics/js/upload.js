@@ -268,11 +268,13 @@
                             method: 'POST',
                             data: src,
                             dataType:'json',
-                            success:function(data){
-                                console.log(data);
+                            success: function (data, status)  //服务器成功响应处理函数
+                            {
+                                console.log(data, status)
                             },
-                            error:function(error){
-                                console.log(error);
+                            error: function (data, status, e)//服务器响应失败处理函数
+                            {
+                                console.log(data, status, e)
                             }
                         }).done(function( response ) {
                             if (response.result) {
