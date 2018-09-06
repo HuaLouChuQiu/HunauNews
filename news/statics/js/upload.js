@@ -153,6 +153,9 @@
             chunkSize: 512 * 1024,
             server: '../../../news/fileUpload',
             method:'POST',
+            success:function(data){
+                console.log(data);
+            },
             // runtimeOrder: 'flash',
 
             // accept: {
