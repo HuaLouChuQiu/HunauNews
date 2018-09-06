@@ -28,7 +28,7 @@ $(function(){
 
     //推荐
     $.ajax({
-        type: 'GET',
+        type: 'post',
         url: '../../../news/showNewsByClass',
         data:{
             class_id:class_id,
@@ -61,7 +61,7 @@ $(function(){
         
       });
     $.ajax({
-        type: 'GET',
+        type: 'post',
         url: '../../../news/showNewsById',
         data:{
             news_id:news_id
@@ -116,7 +116,7 @@ $(function(){
                 $('#projectbody').append(html2);
             }
             $.ajax({
-                type: 'GET',
+                type: 'post',
                 url: '../../../news/findNameById',
                 data:{
                     user_id:data.user_id
@@ -144,78 +144,109 @@ $(function(){
         }
         
       });
-    //   展示评论
-    $.ajax({
-        type: 'GET',
-        url: '../../../news/showCommentByNewsId',
-        data:{
-            news_id:news_id
-        },
-        dataType: 'JSON',
-        success: function(data){
-            console.log(data);
-            if(data.length == ''){
-                let html5 = 
-                `
-                <div class="comment-show-con clearplfix">
-                <div class="comment-show-con-list pull-left clearplfix">
-                    <p class="meiyou">暂无评论</p>
-                </div>
-            </div>
-                `
-                $('.comment-show').append(html5);
-            }else{
-                for(var i=0;i<data.length;i++){
-                    var oDate = new Date(data[i].create_time);
-                    var oY = oDate.getFullYear() + '-';
-                    var oM = (oDate.getMonth()+1 < 10 ? '0'+(oDate.getMonth()+1) : oDate.getMonth()+1) + '-';
-                    var oD = oDate.getDate() + ' '; 
-                    var oYMD=oY+oM+oD;
+      //发表评论
+      var oUserId = $.session.get('userID');
+      var oUserName = $.session.get('username');
+    $('.plBtn').click(function(){
+        var oTextarea = $('#textarea').val();
+        if(oTextarea == ''){
+            alert('您还没有写评论哦...');
+        }else{
+            $.ajax({
+                type: 'post',
+                url: '../../../news/addComment',
+                data:{
+                    news_id:news_id,
+                    user_id:oUserId,
+                    comment_content:oTextarea
+                },
+                dataType: 'JSON',
+                success: function(data){
+                    show(); 
+                },
+                error:function(error){
 
+                }
+            })
+        }
+    })
+    
+    show();
+    //   展示评论
+    function show(){
+        $.ajax({
+            type: 'post',
+            url: '../../../news/showCommentByNewsId',
+            data:{
+                news_id:news_id
+            },
+            dataType: 'JSON',
+            success: function(data){
+                console.log(data);
+                if(data.length == ''){
                     let html5 = 
                     `
                     <div class="comment-show-con clearplfix">
-                    <div class="comment-show-con-img pull-left"><img src="statics/images/header-img-comment_03.png" alt=""></div>
                     <div class="comment-show-con-list pull-left clearplfix">
-                        <div class="pl-text clearplfix">
-                            
-                            <span class="my-pl-con">&nbsp;${data[i].comment_content}</span>
-                        </div>
-                        <div class="date-dz">
-                            <span class="date-dz-left pull-left comment-time">${oYMD}</span>
-                        </div>
-                        <div class="hf-list-con"></div>
+                        <p class="meiyou">暂无评论</p>
                     </div>
-                </div> 
+                </div>
                     `
                     $('.comment-show').append(html5);
-                    $.ajax({
-                        type: 'GET',
-                        url: '../../../news/findNameById',
-                        data:{
-                            user_id:data[i].user_id
-                        },
-                        dataType: 'text',
-                        success: function(talk){
-                            console.log(talk);
-                            let html6=
-                            `
-                            <a href="javascript:void(0);" class="comment-size-name">${talk} : </a>
-                            `
-                            $('.pl-text').prepend(html6);
-                        },
-                        error:function(error){
-                            console.log(error);
-                        }
-                        
-                      });   
+                }else{
+                    for(var i=0;i<data.length;i++){
+                        var oDate = new Date(data[i].create_time);
+                        var oY = oDate.getFullYear() + '-';
+                        var oM = (oDate.getMonth()+1 < 10 ? '0'+(oDate.getMonth()+1) : oDate.getMonth()+1) + '-';
+                        var oD = oDate.getDate() + ' '; 
+                        var oYMD=oY+oM+oD;
+    
+                        let html5 = 
+                        `
+                        <div class="comment-show-con clearplfix">
+                        <div class="comment-show-con-img pull-left"><img src="statics/images/header-img-comment_03.png" alt=""></div>
+                        <div class="comment-show-con-list pull-left clearplfix">
+                            <div class="pl-text clearplfix">
+                                
+                                <span class="my-pl-con">&nbsp;${data[i].comment_content}</span>
+                            </div>
+                            <div class="date-dz">
+                                <span class="date-dz-left pull-left comment-time">${oYMD}</span>
+                            </div>
+                            <div class="hf-list-con"></div>
+                        </div>
+                    </div> 
+                        `
+                        $('.comment-show').append(html5);
+                        $.ajax({
+                            type: 'post',
+                            url: '../../../news/findNameById',
+                            data:{
+                                user_id:data[i].user_id
+                            },
+                            dataType: 'text',
+                            success: function(talk){
+                                console.log(talk);
+                                let html6=
+                                `
+                                <a href="javascript:void(0);" class="comment-size-name">${talk} : </a>
+                                `
+                                $('.pl-text').prepend(html6);
+                            },
+                            error:function(error){
+                                console.log(error);
+                            }
+                            
+                          });   
+                    }
+                    
                 }
-                
+            },
+            error:function(error){
+                console.log(error);
             }
-        },
-        error:function(error){
-            console.log(error);
-        }
-        
-      });
+            
+          });
+    }
+    
 })

@@ -113,10 +113,6 @@ $(function () {
     $('#exit').click(function(){
         //清除数据
         $.session.clear();
-        var oUserId = $.session.get('userID');
-        var oUserName = $.session.get('username');
-        console.log(oUserId);
-        console.log(oUserName);
         window.location.href = "http://172.20.10.2:8080/news/HunauNews/news/super_manager/index.html";
     })
     
