@@ -1,6 +1,6 @@
 $(function(){
     $('#apply').click(function(){
-        $(this).empty()
+        
         let html = 
         `
         <a href="javascript:void(0);" target="_self">
@@ -8,6 +8,7 @@ $(function(){
         <i class="fa fa-angle-right"></i>
     </a>
         `
+        $(this).empty()
         $(this).append(html);
     })
 })
