@@ -16,10 +16,8 @@ $(function () {
         console.log(oUserId);
         console.log(oUserName);
     } else {
-        if (oUserId != null) {
-            console.log()
-            window.location.href = "http://172.20.10.2:8080/news/HunauNews/news/super_manager/index.html";
-        }
+        console.log('a')
+        window.location.href = "http://172.20.10.2:8080/news/HunauNews/news/super_manager/index.html";
     }
     //清除数据
     // $.session.clear();
