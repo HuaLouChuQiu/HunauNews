@@ -11,7 +11,7 @@ $(function(){
     if (oUserId != null) {
         $.ajax({
             type: 'GET',
-            url: '../../../news/findLevel',
+            url: '../../../../news/findLevel',
             data:{
                 user_id:oUserId,
             },
