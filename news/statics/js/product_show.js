@@ -226,7 +226,7 @@ $(function(){
                         <div class="comment-show-con-img pull-left"><img src="statics/images/header-img-comment_03.png" alt=""></div>
                         <div class="comment-show-con-list pull-left clearplfix">
                             <div class="pl-text clearplfix">
-                                
+                                <a href="javascript:void(0);" class="comment-size-name">${data[i].username} : </a>
                                 <span class="my-pl-con">&nbsp;${data[i].comment_content}</span>
                             </div>
                             <div class="date-dz">
@@ -236,38 +236,7 @@ $(function(){
                         </div>
                     </div> 
                         `
-                        $('.comment-show').append(html5);
-                        //名字
-                        console.log(i)
-                        $.ajax({
-                            type: 'post',
-                            url: '../../../news/findNameById',
-                            data:{
-                                user_id:data[i].user_id
-                            },
-                            dataType: 'text',
-                            success: function(talk){
-                                console.log(i)
-                                console.log(talk);
-                                let html6=
-                                `
-                                <a href="javascript:void(0);" class="comment-size-name">${talk} : </a>
-                                `
-                                $('.pl-text').each(function(index,item){
-                                    console.log(i)
-                                    console.log(index)
-                                    if(i == index){
-                                        console.log(ok);
-                                        $(item).prepend(html6);
-                                    }
-                                })
-                                
-                            },
-                            error:function(error){
-                                console.log(error);
-                            }
-                            
-                          });   
+                        $('.comment-show').append(html5); 
                     }
                     
                 }
