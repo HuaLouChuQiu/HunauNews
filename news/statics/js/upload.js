@@ -251,7 +251,8 @@
             } else {
                 // @todo lazyload
                 $wrap.text( '预览中' );
-                uploader.makeThumb( file, function( error, src ) {
+                uploader.makeThumb( file, function( error, src) {
+                    console.log(file);
                     var img;
 
                     if ( error ) {
@@ -265,7 +266,7 @@
                     } else {
                         $.ajax('../../../news/fileUpload', {
                             method: 'POST',
-                            data: src,
+                            data: file,
                             dataType:'json'
                         }).done(function( response ) {
                             if (response.result) {
