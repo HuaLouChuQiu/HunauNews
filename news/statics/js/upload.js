@@ -151,7 +151,7 @@
             swf: 'resource/Uploader.swf',
             chunked: true,
             chunkSize: 512 * 1024,
-            server: '../server/fileupload.php',
+            server: '../../../news/fileUpload',
             method:'POST',
             // runtimeOrder: 'flash',
 
