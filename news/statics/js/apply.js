@@ -5,7 +5,8 @@ $(function () {
     $.session.set('username', 'hjy')
 
     //删除数据
-    // $.session.remove('key');
+    $.session.remove('userID');
+    $.session.remove('username');
 
     //获取数据
     var oUserId = $.session.get('userID');
