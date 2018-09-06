@@ -163,6 +163,7 @@ $(function(){
                 },
                 dataType: 'JSON',
                 success: function(data){
+                    console.log(news_id);
                     console.log(data);
                     show(news_id); 
                 },
