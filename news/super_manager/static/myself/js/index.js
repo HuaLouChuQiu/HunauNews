@@ -1,7 +1,7 @@
 $(function(){
     // 添加数据 模拟
-    $.session.set('userID', '4')
-    $.session.set('username', 'hjy')
+    $.session.set('userID', '1')
+    $.session.set('username', 'admin')
 
     var oUserId = $.session.get('userID');
     var oUserName = $.session.get('username');
@@ -21,6 +21,7 @@ $(function(){
                 if (data[0].level == 2) {
                     $('.dropDown_A').text(oUserName);
                 }else {
+                    alert("您不是管理员！")
                     window.location.href = "http://172.20.10.2:8080/news/HunauNews/news/index.html";
                 }
             },
@@ -29,10 +30,11 @@ $(function(){
             }
         })
     } else {
-        console.log('a')
+        alert("您还没登陆！")
         window.location.href = "http://172.20.10.2:8080/news/HunauNews/news/product_show.html?news_id=259&class_id=2";
     }
     $('#exit').click(function(){
+        alert("退出成功！")
         //清除数据
         $.session.clear();
         window.location.href = "http://172.20.10.2:8080/news/HunauNews/news/product_show.html?news_id=259&class_id=2";
