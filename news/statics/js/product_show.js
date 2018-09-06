@@ -238,6 +238,7 @@ $(function(){
                         `
                         $('.comment-show').append(html5);
                         //名字
+                        console.log(i)
                         $.ajax({
                             type: 'post',
                             url: '../../../news/findNameById',
@@ -246,6 +247,7 @@ $(function(){
                             },
                             dataType: 'text',
                             success: function(talk){
+                                console.log(i)
                                 console.log(talk);
                                 let html6=
                                 `
