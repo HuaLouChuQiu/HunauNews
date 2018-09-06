@@ -209,7 +209,7 @@ $(function(){
                         let html5 = 
                         `
                         <div class="comment-show-con clearplfix">
-                        <div class="comment-show-con-img pull-left"><img src="statics/header-img-comment_03.png" alt=""></div>
+                        <div class="comment-show-con-img pull-left"><img src="statics/images/header-img-comment_03.png" alt=""></div>
                         <div class="comment-show-con-list pull-left clearplfix">
                             <div class="pl-text clearplfix">
                                 
