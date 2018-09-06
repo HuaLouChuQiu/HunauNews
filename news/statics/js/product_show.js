@@ -158,7 +158,7 @@ $(function(){
                 $(t).val($(t).val().substring(0,140));
             }
         }
-        
+
       //发表评论
       var oUserId = $.session.get('userID');
       var oUserName = $.session.get('username');
@@ -200,6 +200,7 @@ $(function(){
             },
             dataType: 'JSON',
             success: function(data){
+                $('.comment-show').empty();
                 console.log(data);
                 if(data.length == ''){
                     let html5 = 
