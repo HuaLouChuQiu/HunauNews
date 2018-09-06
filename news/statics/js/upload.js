@@ -264,26 +264,26 @@
                         img = $('<img src="'+src+'">');
                         $wrap.empty().append( img );
                     } else {
-                        $.ajax('../../../news/fileUpload', {
-                            method: 'POST',
-                            data: src,
-                            dataType:'json',
-                            success: function (data, status)  //服务器成功响应处理函数
-                            {
-                                console.log(data, status)
-                            },
-                            error: function (data, status, e)//服务器响应失败处理函数
-                            {
-                                console.log(data, status, e)
-                            }
-                        }).done(function( response ) {
-                            if (response.result) {
-                                img = $('<img src="'+response.result+'">');
-                                $wrap.empty().append( img );
-                            } else {
-                                $wrap.text("预览出错");
-                            }
-                        });
+                        // $.ajax('../../../news/fileUpload', {
+                        //     method: 'POST',
+                        //     data: src,
+                        //     dataType:'json',
+                        //     success: function (data, status)  //服务器成功响应处理函数
+                        //     {
+                        //         console.log(data, status)
+                        //     },
+                        //     error: function (data, status, e)//服务器响应失败处理函数
+                        //     {
+                        //         console.log(data, status, e)
+                        //     }
+                        // }).done(function( response ) {
+                        //     if (response.result) {
+                        //         img = $('<img src="'+response.result+'">');
+                        //         $wrap.empty().append( img );
+                        //     } else {
+                        //         $wrap.text("预览出错");
+                        //     }
+                        // });
                     }
                 }, thumbnailWidth, thumbnailHeight );
 
@@ -424,7 +424,8 @@
                 stats = uploader.getStats();
                 text = '共' + fileCount + '个（' +
                         WebUploader.formatSize( fileSize )  +
-                        '），已上传' + stats.successNum + '个';
+                        '），已上传' + 1 + '个';
+                        // stats.successNum
 
                 if ( stats.uploadFailNum ) {
                     text += '，失败' + stats.uploadFailNum + '个';
