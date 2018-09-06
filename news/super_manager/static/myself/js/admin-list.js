@@ -68,6 +68,7 @@ $(function () {
         }
     });
 
+    pagesUser(1);
     function pagesUser(page){
         $.ajax({
             type: 'GET',
