@@ -153,8 +153,11 @@
             chunkSize: 512 * 1024,
             server: '../../../news/fileUpload',
             method:'POST',
-            success:function(data){
+            uploadSuccess:function(data){
                 console.log(data);
+            },
+            error:function(error){
+                console.log(error)
             },
             // runtimeOrder: 'flash',
 
@@ -170,6 +173,12 @@
             fileSizeLimit: 2000 * 1024 * 1024,    // 200 M
             fileSingleSizeLimit: 500 * 1024 * 1024    // 50 M
         });
+        uploader.on( 'uploadSuccess', function( file,response ) {
+            console.log(response);
+            if(uploadSuccess)
+                uploadSuccess(file,response);
+        });
+
 
         // 拖拽时不接受 js, txt 文件。
         uploader.on( 'dndAccept', function( items ) {
