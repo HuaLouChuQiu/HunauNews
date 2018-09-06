@@ -9,7 +9,9 @@ $(function(){
     } 
     
     var news_id = getUrlParam('news_id');
+
     var class_id = getUrlParam('class_id');
+
     console.log(news_id);
     console.log(class_id);
     if(class_id == 1){
@@ -157,8 +159,8 @@ $(function(){
                 type: 'post',
                 url: '../../../news/addComment',
                 data:{
-                    news_id:news_id,
                     user_id:oUserId,
+                    news_id:news_id,
                     comment_content:oTextarea
                 },
                 dataType: 'JSON',
