@@ -69,25 +69,6 @@ $(function () {
     });
 
     pagesUser(1);
-    $.ajax({
-        type: 'GET',
-        url: '../../../../news/showPageUser',
-        data:{
-            size:10
-        },
-        dataType: 'JSON',
-        success: function(allPages){
-            console.log(allPages);
-            // if(page>allPages){
-            //     manage(allPages,allPages);
-            // }else{
-            //     manage(page,allPages);
-            // }
-        },
-        error:function(error){
-            console.log(error)
-        }
-    })
     function pagesUser(page){
         $.ajax({
             type: 'GET',
@@ -98,11 +79,11 @@ $(function () {
             dataType: 'JSON',
             success: function(allPages){
                 console.log(allPages);
-                // if(page>allPages){
-                //     manage(allPages,allPages);
-                // }else{
-                //     manage(page,allPages);
-                // }
+                if(page>allPages){
+                    manage(allPages,allPages);
+                }else{
+                    manage(page,allPages);
+                }
             },
             error:function(error){
                 console.log(error)
