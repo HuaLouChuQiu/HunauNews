@@ -174,9 +174,11 @@
             fileSingleSizeLimit: 500 * 1024 * 1024    // 50 M
         });
         uploader.on( 'uploadSuccess', function( file,response ) {
-            console.log(response);
-            if(uploadSuccess)
-                uploadSuccess(file,response);
+            console.log(uploadSuccess);
+            if(uploadSuccess){
+                console.log(response);
+            }
+                // uploadSuccess(file,response);
         });
 
 
