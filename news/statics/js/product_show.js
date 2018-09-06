@@ -218,7 +218,10 @@ $(function(){
                         var oY = oDate.getFullYear() + '-';
                         var oM = (oDate.getMonth()+1 < 10 ? '0'+(oDate.getMonth()+1) : oDate.getMonth()+1) + '-';
                         var oD = oDate.getDate() + ' '; 
-                        var oYMD=oY+oM+oD;
+                        var oH = oDate.getHours() + ':';
+                        var oMIN = oDate.getMinutes() + ':';
+                        var oS = oDate.getSeconds(); 
+                        var oTime=oY+oM+oD+oH+oMIN+oS;
     
                         let html5 = 
                         `
@@ -230,7 +233,7 @@ $(function(){
                                 <span class="my-pl-con">&nbsp;${data[i].comment_content}</span>
                             </div>
                             <div class="date-dz">
-                                <span class="date-dz-left pull-left comment-time">${oYMD}</span>
+                                <span class="date-dz-left pull-left comment-time">${oTime}</span>
                             </div>
                             <div class="hf-list-con"></div>
                         </div>
