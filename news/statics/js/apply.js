@@ -8,6 +8,6 @@ $(function(){
         <i class="fa fa-angle-right"></i>
     </a>
         `
-        $(this).appand(html);
+        $(this).append(html);
     })
 })
