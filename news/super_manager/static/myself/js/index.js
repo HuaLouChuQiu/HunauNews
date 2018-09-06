@@ -19,7 +19,7 @@ $(function(){
             success: function(data){
                 console.log(data);
                 if (data[0].level == 2) {
-                    $('.dropDown_A').text(oUserName);
+                    $('#guanli').text(oUserName);
                 }else {
                     alert("您不是管理员！")
                     window.location.href = "http://172.20.10.2:8080/news/HunauNews/news/index.html";
