@@ -21,6 +21,7 @@ $(function () {
 //启用 停用 删除
 function xigaiUser(url,id,thisPage,tishi,icon){
     var oText = $('.input-text').val()
+    console.log("id="+id);
     $.ajax({
         type: 'POST',
         url: url,
@@ -157,18 +158,18 @@ function xigaiUser(url,id,thisPage,tishi,icon){
 
                     $('.stop').each(function(index,item){
                         $(item).click(function(){
-                            admin_stop(data[index].news_id,page)
+                            admin_stop(data[index].user_id,page)
                         })
                     })
                     $('.ml-5').each(function(index,item){
                         $(item).click(function(){
-                            admin_del(data[index].news_id,page)
+                            admin_del(data[index].user_id,page)
                         })
                         
                     })
                     $('.start').each(function(index,item){
                         $(item).click(function(){
-                            admin_start(data[index].news_id,page)
+                            admin_start(data[index].user_id,page)
                         })
                         
                     })
