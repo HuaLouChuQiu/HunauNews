@@ -252,7 +252,10 @@ $(function(){
                                 <a href="javascript:void(0);" class="comment-size-name">${talk} : </a>
                                 `
                                 $('.pl-text').each(function(index,item){
+                                    console.log(i)
+                                    console.log(index)
                                     if(i == index){
+                                        console.log(ok);
                                         $(item).prepend(html6);
                                     }
                                 })
