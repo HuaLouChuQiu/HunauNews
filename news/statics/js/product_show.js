@@ -146,6 +146,19 @@ $(function(){
         }
         
       });
+      // textarea高度自适应
+    $('.contentpl').flexText();
+    
+        // textarea限制字数
+        keyUP($('#textarea'));
+    
+        function keyUP(t){
+            var len = $(t).val().length;
+            if(len > 139){
+                $(t).val($(t).val().substring(0,140));
+            }
+        }
+        
       //发表评论
       var oUserId = $.session.get('userID');
       var oUserName = $.session.get('username');
