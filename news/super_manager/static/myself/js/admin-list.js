@@ -155,26 +155,39 @@ function xigaiUser(url,id,thisPage,tishi,icon){
                             }
                         })
                     }
+                    $("td-manage").each(function (index, item) {
+                        console.log("index=" + index);
+                        $('.stop').click(function () {
+                            admin_stop(data[index].user_id, page)
+                        })
+                        $('.ml-5').click(function () {
+                            admin_del(data[index].user_id, page)
+                        })
+                        $('.start').click(function () {
+                            console.log("startinedx=" + index);
+                            admin_start(data[index].user_id, page)
+                        })
+                    })
 
-                    $('.stop').each(function(index,item){
-                        console.log("stopinedx="+index);
-                        $(item).click(function(){
-                            admin_stop(data[index].user_id,page)
-                        })
-                    })
-                    $('.ml-5').each(function(index,item){
-                        $(item).click(function(){
-                            admin_del(data[index].user_id,page)
-                        })
+                    // $('.stop').each(function(index,item){
+                    //     console.log("stopinedx="+index);
+                    //     $(item).click(function(){
+                    //         admin_stop(data[index].user_id,page)
+                    //     })
+                    // })
+                    // $('.ml-5').each(function(index,item){
+                    //     $(item).click(function(){
+                    //         admin_del(data[index].user_id,page)
+                    //     })
                         
-                    })
-                    $('.start').each(function(index,item){
-                        $(item).click(function(){
-                            console.log("startinedx="+index);
-                            admin_start(data[index].user_id,page)
-                        })
+                    // })
+                    // $('.start').each(function(index,item){
+                    //     $(item).click(function(){
+                    //         console.log("startinedx="+index);
+                    //         admin_start(data[index].user_id,page)
+                    //     })
                         
-                    })
+                    // })
                     
                 }
                 new pagination({
