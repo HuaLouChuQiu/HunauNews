@@ -1,73 +1,48 @@
 $(function () {
-    /*管理员-删除*/
-    function admin_del(obj, id) {
+    /*管理员- */
+    function admin_del(id,thisPage) {
         layer.confirm('确认要删除吗？', function (index) {
-            // $.ajax({
-            //     type: 'POST',
-            //     url: '',
-            //     dataType: 'json',
-            //     success: function (data) {
-            //         $(obj).parents("tr").remove();
-            //         layer.msg('已删除!', { icon: 1, time: 1000 });
-            //     },
-            //     error: function (data) {
-            //         console.log(data.msg);
-            //     },
-            // });
+            xigaiUser('../../../../news/moveApplyUser',id,thisPage,'已删除!',1)
         });
     }
     /*管理员-停用*/
-    function admin_stop(obj, id) {
+    function admin_stop(id,thisPage) {
         layer.confirm('确认要停用吗？', function (index) {
             //此处请求后台程序，下方是成功后的前台处理……
-
-            $(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_start(this,id)" href="javascript:;" title="启用" style="text-decoration:none"><i class="Hui-iconfont">&#xe615;</i></a>');
-            $(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">已禁用</span>');
-            $(obj).remove();
-            layer.msg('已停用!', { icon: 5, time: 1000 });
+            xigaiUser('../../../../news/downLevel',id,thisPage,'已停用!',5)
         });
     }
     /*管理员-启用*/
-    function admin_start(obj, id) {
+    function admin_start(id,thisPage) {
         layer.confirm('确认要启用吗？', function (index) {
-            //此处请求后台程序，下方是成功后的前台处理……
-            $(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_stop(this,id)" href="javascript:;" title="停用" style="text-decoration:none"><i class="Hui-iconfont">&#xe631;</i></a>');
-            $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
-            $(obj).remove();
-            layer.msg('已启用!', { icon: 6, time: 1000 });
+            xigaiUser('../../../../news/upLevel',id,thisPage,'已启用!',6)
         });
     }
-
-    // $('.stop').each(function(index,item){
-    //     $(item).click(function(){
-    //         admin_stop(this,'10001')
-    //     })
-    // })
-    // $('.ml-5').each(function(index,item){
-    //     $(item).click(function(){
-    //         admin_del(this,'1')
-    //     })
-        
-    // })
-    // $('.start').each(function(index,item){
-    //     $(item).click(function(){
-    //         admin_start(this,'10001')
-    //     })
-        
-    // })
-    new pagination({
-        pagination:$('.pagination'),
-        maxPage: 5, //最大页码数,支持奇数，左右对称
-        startPage: 1,    //默认第一页
-        currentPage: 1,          //当前页码
-        totalItemCount: 10,    //项目总数,大于0，显示页码总数
-        totalPageCount: 8,        //总页数
-        callback:function(pageNum){
-            console.log(pageNum)
-            // pages(pageNum);
-        }
+//启用 停用 删除
+function xigaiUser(url,id,thisPage,tishi,icon){
+    var oText = $('.input-text').val()
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data:{
+            user_id:id
+        },
+        dataType: 'json',
+        success: function (data) {
+            layer.msg(tishi, { icon: icon, time: 1000 });
+            // var oText = $('#search').val()
+            console.log("oText176="+oText);
+            if(oText == ''){
+                pagesUser(thisPage);
+            }else{
+                searchPages(oText,thisPage); 
+            }
+        },
+        error: function (data) {
+            console.log(data.msg);
+        },
     });
-
+}
     pagesUser(1);
     function pagesUser(page){
         $.ajax({
@@ -179,20 +154,21 @@ $(function () {
                             }
                         })
                     }
+
                     $('.stop').each(function(index,item){
                         $(item).click(function(){
-                            admin_stop(this,'10001')
+                            admin_stop(data[index].news_id,page)
                         })
                     })
                     $('.ml-5').each(function(index,item){
                         $(item).click(function(){
-                            admin_del(this,'1')
+                            admin_del(data[index].news_id,page)
                         })
                         
                     })
                     $('.start').each(function(index,item){
                         $(item).click(function(){
-                            admin_start(this,'10001')
+                            admin_start(data[index].news_id,page)
                         })
                         
                     })
@@ -218,4 +194,5 @@ $(function () {
             
         });
     }
+    
 })
