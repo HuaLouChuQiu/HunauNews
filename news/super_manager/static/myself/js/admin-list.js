@@ -157,6 +157,7 @@ function xigaiUser(url,id,thisPage,tishi,icon){
                     }
 
                     $('.stop').each(function(index,item){
+                        console.log("stopinedx="+index);
                         $(item).click(function(){
                             admin_stop(data[index].user_id,page)
                         })
@@ -169,6 +170,7 @@ function xigaiUser(url,id,thisPage,tishi,icon){
                     })
                     $('.start').each(function(index,item){
                         $(item).click(function(){
+                            console.log("startinedx="+index);
                             admin_start(data[index].user_id,page)
                         })
                         
