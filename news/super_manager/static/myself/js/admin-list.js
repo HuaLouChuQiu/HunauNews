@@ -129,15 +129,10 @@ $(function () {
                         <td class='level'>新闻编辑</td>
                         <td>2014-6-11 11:11:42</td>
                         <td class="td-status">
-                            <span class="label label-success radius">已启用</span>
+                            
                         </td>
                         <td class="td-manage">
-                            <a class="stop" style="text-decoration:none" href="javascript:;" title="停用">
-                                <i class="Hui-iconfont">&#xe631;</i>
-                            </a>
-                            <a title="删除" href="javascript:;" class="ml-5" style="text-decoration:none">
-                                <i class="Hui-iconfont">&#xe6e2;</i>
-                            </a>
+                            
                         </td>
                     </tr>
                         `
