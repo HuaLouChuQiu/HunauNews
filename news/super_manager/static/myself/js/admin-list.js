@@ -122,11 +122,11 @@ $(function () {
                         <td>
                             <input type="checkbox" value="1" name="">
                         </td>
-                        <td>1</td>
-                        <td>admin</td>
+                        <td>${data[i].user_id}</td>
+                        <td>${data[i].username}</td>
                         <td>13000000000</td>
                         <td>admin@mail.com</td>
-                        <td>超级管理员</td>
+                        <td class='level'>新闻编辑</td>
                         <td>2014-6-11 11:11:42</td>
                         <td class="td-status">
                             <span class="label label-success radius">已启用</span>
@@ -142,41 +142,47 @@ $(function () {
                     </tr>
                         `
                         $('#tbody').append(html);
-                        // if(data[i].state == 0){
-                        //     var html1 = 
-                        //     `
-                        //     <span class="label label-success radius">草稿</span>
-                        //     `
-                        //     var html2 = 
-                        //     `
-                        //     <a style="text-decoration:none" class="shenhe" href="javascript:;" title="审核">审核</a>
-						// 	<a style="text-decoration:none" id="myClz" class="ml-5" href="javascript:;" title="删除">
-						// 		<i class="Hui-iconfont">&#xe6e2;</i>
-						// 	</a>
-                        //     `
+                        if(data[i].level == 0){
+                            var html1 = 
+                            `
+                            <span class="label radius">已停用</span>
                             
-                        // }else{
-                        //     var html1 = 
-                        //     `
-                        //     <span class="label label-success radius">已发布</span>
-                        //     `
-                        //     var html2 = 
-                        //     `
-                        //     <a style="text-decoration:none" id="myClz" class="ml-5" href="javascript:;" title="删除">
-                        //     <i class="Hui-iconfont">&#xe6e2;</i>
-                        // </a>
-                        //     `
-                        // }
-                        // $('.td-status').each(function(index,item){
-                        //     if(index == i){
-                        //         $(item).append(html1);
-                        //     }
-                        // })
-                        // $('.td-manage').each(function(index,item){
-                        //     if(index == i){
-                        //         $(item).append(html2);
-                        //     }
-                        // })
+                            `
+                            var html2 = 
+                            `
+                            <a class="start" style="text-decoration:none" href="javascript:;" title="启用">
+                            <i class="Hui-iconfont">&#xe615;</i>
+                        </a>
+                        <a title="删除" href="javascript:;" class="ml-5" style="text-decoration:none">
+                            <i class="Hui-iconfont">&#xe6e2;</i>
+                        </a>
+                            `
+                        }else{
+                            var html1 = 
+                            `
+                            <span class="label label-success radius">已启用</span>
+                            `
+                            var html2 = 
+                            `
+                            <a class="stop" style="text-decoration:none" href="javascript:;" title="停用">
+                            <i class="Hui-iconfont">&#xe631;</i>
+                        </a>
+                        <a title="删除" href="javascript:;" class="ml-5" style="text-decoration:none">
+                            <i class="Hui-iconfont">&#xe6e2;</i>
+                        </a>
+                            
+                            `
+                        }
+                        $('.td-status').each(function(index,item){
+                            if(index == i){
+                                $(item).append(html1);
+                            }
+                        })
+                        $('.td-manage').each(function(index,item){
+                            if(index == i){
+                                $(item).append(html2);
+                            }
+                        })
                     }
                     $('.stop').each(function(index,item){
                         $(item).click(function(){
