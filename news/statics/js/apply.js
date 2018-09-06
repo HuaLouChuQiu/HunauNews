@@ -1,7 +1,7 @@
 $(function () {
 
     // 添加数据 模拟
-    $.session.set('userID', '1')
+    $.session.set('userID', '2')
     $.session.set('username', 'hjy')
 
     //删除数据
