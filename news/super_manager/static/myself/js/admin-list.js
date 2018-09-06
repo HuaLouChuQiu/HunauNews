@@ -155,7 +155,7 @@ function xigaiUser(url,id,thisPage,tishi,icon){
                             }
                         })
                     }
-                    $("td-manage").each(function (index, item) {
+                    $(".td-manage").each(function (index, item) {
                         console.log("index=" + index);
                         $(item).find('.stop').click(function () {
                             admin_stop(data[index].user_id, page)
