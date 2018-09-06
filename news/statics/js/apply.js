@@ -1,8 +1,8 @@
 $(function () {
 
     // 添加数据 模拟
-    // $.session.set('userID', '1')
-    // $.session.set('username', 'hjy')
+    $.session.set('userID', '1')
+    $.session.set('username', 'hjy')
 
     //删除数据
     // $.session.remove('key');
@@ -16,7 +16,9 @@ $(function () {
         console.log(oUserId);
         console.log(oUserName);
     }else{
-        window.location.href="./news/HunauNews/news/super_manager/index.html";
+    if(oUserId != null){
+        console.log()
+        window.location.href="http://172.20.10.2:8080/news/HunauNews/news/super_manager/index.html";
     }
     //清除数据
     // $.session.clear();
