@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>写文章</title>
+	<link rel="stylesheet" type="text/css" href="statics/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="statics/css/demo.css">
+	<link rel="stylesheet" type="text/css" href="statics/css/webuploader.css" />
+	<link rel="stylesheet" type="text/css" href="statics/css/writestyle.css" />
+	<link rel="stylesheet" type="text/css" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css">
+	<link href="statics/dist/summernote.css" rel="stylesheet" />
+	<style type="text/css">
+		html,
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		html {
+			min-height: 300vh;
+		}
+
+		body {
+			height: 1000px;
+			min-height: 300vh;
+			background-color: white;
+			/* background-image: linear-gradient(120deg, #fcfbfa 0%, #fbf8fc 100%); */
+		}
+
+		.header-navigation {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			height: 60px;
+			line-height: 60px;
+			background-color: white;
+			text-align: center;
+			box-shadow: 0 0px 5px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+			z-index: 9999;
+		}
+
+		.link {
+			color: #333;
+			text-decoration: none;
+			margin: 0 30px;
+		}
+
+		h1 {
+			text-align: center;
+			margin-top: 170px;
+			margin-bottom: 50px;
+			color: #fff;
+		}
+
+		/* Slide transitions */
+
+		.slideUp {
+			/* -webkit-transform: translateY(-100px);
+	  transform: translateY(-100px);*/
+			-webkit-transform: translateY(-100px);
+			-ms-transform: translateY(-100px);
+			-o-transform: translateY(-100px);
+			transform: translateY(-100px);
+			/*transition: transform .5s ease-out;*/
+			-webkit-transition: transform .5s ease-out;
+			-o-transition: transform .5s ease-out;
+			transition: transform .5s ease-out;
+		}
+
+		.slideDown {
+			/*-webkit-transform: translateY(0);
+	  transform: translateY(0);*/
+			-webkit-transform: translateY(0);
+			-ms-transform: translateY(0);
+			-o-transform: translateY(0);
+			transform: translateY(0);
+			/*transition: transform .5s ease-out;*/
+			-webkit-transition: transform .5s ease-out;
+			-o-transition: transform .5s ease-out;
+			transition: transform .5s ease-out;
+		}
+
+		.width_auto {
+			width: 53%;
+			margin: 100px auto;
+		}
+
+		.m {
+			margin-top: -96px;
+			width: 805px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		a,
+		img {
+			border: 0;
+			text-decoration: none;
+		}
+
+		/* Form */
+
+		.Form {
+			margin: 20px auto;
+			width: 600px;
+		}
+
+		.Form textarea {
+			display: inline-block;
+			padding: 6px 12px;
+			font-size: 18px;
+			font-weight: 300;
+			line-height: 1.4;
+			color: #221919;
+			background: #fff;
+			border: 1px solid #ccc;
+			resize: none;
+			position: relative;
+			top: -88px;
+			left: -102px;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-ms-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+
+			border-radius: 6px;
+			-moz-border-radius: 6px;
+			-webkit-border-radius: 6px;
+
+			box-shadow: inset 0 1px rgba(34, 25, 25, .15), 0 1px rgba(255, 255, 255, .8);
+			-moz-box-shadow: inset 0 1px rgba(34, 25, 25, .15), 0 1px rgba(255, 255, 255, .8);
+			-webkit-box-shadow: inset 0 1px rgba(34, 25, 25, .15), 0 1px rgba(255, 255, 255, .8);
+
+			-webkit-transition: all .08s ease-in-out;
+			-moz-transition: all .08s ease-in-out;
+		}
+
+		.Form textarea {
+			min-height: 90px;
+		}
+
+		.Form textarea:focus {
+			border-color: #006499;
+			box-shadow: 0 1px rgba(34, 25, 25, 0.15) inset, 0 1px rgba(255, 255, 255, 0.8), 0 0 14px rgba(82, 162, 235, 0.35);
+			-moz-box-shadow: 0 1px rgba(34, 25, 25, 0.15) inset, 0 1px rgba(255, 255, 255, 0.8), 0 0 14px rgba(82, 162, 235, 0.35);
+			-webkit-box-shadow: 0 1px rgba(34, 25, 25, 0.15) inset, 0 1px rgba(255, 255, 255, 0.8), 0 0 14px rgba(82, 162, 235, 0.35);
+		}
+
+		/* wordage */
+
+		.wordage {
+			float: right;
+			text-align: right;
+			font-size: 14px;
+			color: #5e5e5e;
+			margin: 5px 0 0px 20px;
+			position: relative;
+			top: -128px;
+			left: 95px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<header class="header-navigation" id="header">
+		<nav>
+			<a class="link" href="index.html" title="Home">
+				<img src="statics/images/hunauNews.png" id="home_page" />
+			</a>
+			<a class="link" href="#" title="About" id="write">写文章</a>
+			<input id="publish" type="button" value="发布" />
+			<a class="link" href="#" title="Person" id="person">个人中心</a>
+		</nav>
+	</header>
+
+	<div class="width_auto">
+		<div id="container">
+			<!--头部，相册选择和格式选择-->
+			<div id="uploader">
+
+				<div class="item_container">
+					<div id="" class="queueList">
+						<div id="dndArea" class="placeholder">
+							<div id="filePicker"></div>
+						</div>
+					</div>
+				</div>
+				<div class="statusBar" style="display:none;">
+					<div class="progress">
+						<span class="text">0%</span>
+						<span class="percentage"></span>
+					</div>
+					<div class="info"></div>
+					<div class="btns">
+						<!-- <div id="filePicker2"></div> -->
+						<div class="uploadBtn" id="uploadBtn">开始上传</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div >
+				<img id="headPic" src="statics/images/hunauNews.png"   style="padding: 5px">
+				<input id="upload" name="file" accept="image/*" type="file"/>
+			</div> -->
+		</div>
+	</div>
+	<div class="title">
+		<form name="" id="" action="" class="Form">
+			<textarea id="TextArea1" onkeyup="checkLength(this);" style="width:805px;height:30px" placeholder="请输入标题（最多 30 个字）"></textarea>
+			<span class="wordage">剩余字数：
+				<span id="sy" style="color:Red;">30</span>
+			</span>
+		</form>
+	</div>
+	<div class="m">
+		<div class="summernote">summernote 1</div>
+	</div>
+</body>
+<script type="text/javascript">
+
+	var new_scroll_position = 0;
+	var last_scroll_position;
+	var header = document.getElementById("header");
+
+	window.addEventListener('scroll', function (e) {
+		last_scroll_position = window.scrollY;
+
+		// Scrolling down
+		if (new_scroll_position < last_scroll_position && last_scroll_position > 80) {
+			// header.removeClass('slideDown').addClass('slideUp');
+			header.classList.remove("slideDown");
+			header.classList.add("slideUp");
+
+			// Scrolling up
+		} else if (new_scroll_position > last_scroll_position) {
+			// header.removeClass('slideUp').addClass('slideDown');
+			header.classList.remove("slideUp");
+			header.classList.add("slideDown");
+		}
+
+		new_scroll_position = last_scroll_position;
+	});
+	
+</script>
+<script src="statics/js/jquery-1.9.min.js"></script>
+<script src="statics/js/webuploader.js"></script>
+<script src="statics/js/jquery.sortable.js"></script>
+<script src="statics/js/upload.js"></script>
+<script src="statics/js/jquery.min.js"></script>
+<script src="statics/js/bootstrap.min.js"></script>
+<script src="statics/dist/summernote.js"></script>
+<script src="statics/dist/lang/summernote-zh-CN.js"></script>
+<script src="statics/js/edit.js"></script>
+
+</html>
