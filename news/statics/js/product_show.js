@@ -164,7 +164,7 @@ $(function(){
                 dataType: 'JSON',
                 success: function(data){
                     console.log(data);
-                    show(); 
+                    show(news_id); 
                 },
                 error:function(error){
                     console.log(error);
@@ -173,9 +173,9 @@ $(function(){
         }
     })
     
-    show();
+    show(news_id);
     //   展示评论
-    function show(){
+    function show(news_id){
         $.ajax({
             type: 'post',
             url: '../../../news/showCommentByNewsId',
