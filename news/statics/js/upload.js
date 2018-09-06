@@ -267,7 +267,13 @@
                         $.ajax('../../../news/fileUpload', {
                             method: 'POST',
                             data: src,
-                            dataType:'json'
+                            dataType:'json',
+                            success:function(data){
+                                console.log(data);
+                            },
+                            error:function(error){
+                                console.log(error);
+                            }
                         }).done(function( response ) {
                             if (response.result) {
                                 img = $('<img src="'+response.result+'">');
