@@ -1,7 +1,7 @@
 $(function () {
 
     // 添加数据 模拟
-    $.session.set('userID', '3')
+    $.session.set('userID', '4')
     $.session.set('username', 'hjy')
 
     //删除数据
@@ -69,6 +69,7 @@ $(function () {
                                 },
                                 dataType: 'JSON',
                                 success: function(data){
+                                    console.log(data)
                                     let html =
                                     `
                                 <a href="javascript:void(0);" target="_self">
