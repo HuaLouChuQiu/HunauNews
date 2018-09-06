@@ -161,6 +161,23 @@
 			top: -128px;
 			left: 95px;
 		}
+		.lei{
+			width: 100px;
+			margin: 0 auto;
+			height: 50px;
+			/* background: pink; */
+		}
+		#lei{
+			width: 100px;
+			height: 50px;
+			margin: 20px auto;
+		}
+		.title{
+			margin-top:140px
+		}
+		.width_auto{
+			margin-bottom: 20px
+		}
 	</style>
 </head>
 
@@ -201,20 +218,30 @@
 					</div>
 				</div>
 			</div>
-			
 		</div>
 	</div>
+	<div id="lei">
+		<select class="lei">
+			<option value="1" >综合要闻</option>
+			<option value="2">媒体湘农</option>
+			<option value="3">视频新闻</option>
+			<option value="4">学院动态</option>
+			<option value="5">理论教育</option>
+			<option value="6">专题报道</option>
+		</select>
+	</div>
 	<div class="title">
-		<form name="" id="" action="" class="Form">
-			<textarea id="TextArea1" onkeyup="checkLength(this);" style="width:805px;height:30px" placeholder="请输入标题（最多 30 个字）"></textarea>
-			<span class="wordage">剩余字数：
-				<span id="sy" style="color:Red;">30</span>
-			</span>
-		</form>
+		<div name="" id="" action="" class="Form">
+				<textarea id="TextArea1" onkeyup="checkLength(this);" style="width:805px;height:30px" placeholder="请输入标题（最多 30 个字）"></textarea>
+				<span class="wordage">剩余字数：
+					<span id="sy" style="color:Red;">30</span>
+				</span>
+			</div>
 	</div>
 	<div class="m">
-		<div class="summernote">summernote 1</div>
+		<div class="summernote"></div>
 	</div>
+	<!-- <div id="summernote">Hello Summernote</div> -->
 </body>
 <script type="text/javascript">
 
@@ -243,6 +270,7 @@
 	
 </script>
 <script src="statics/js/jquery-1.9.min.js"></script>
+<script type="text/javascript" src="statics/js/jquerySession.js"></script>
 <script src="statics/js/webuploader.js"></script>
 <script src="statics/js/jquery.sortable.js"></script>
 <script src="statics/js/upload.js"></script>
@@ -251,5 +279,7 @@
 <script src="statics/dist/summernote.js"></script>
 <script src="statics/dist/lang/summernote-zh-CN.js"></script>
 <script src="statics/js/edit.js"></script>
+
+
 
 </html>

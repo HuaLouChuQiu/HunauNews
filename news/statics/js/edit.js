@@ -20,15 +20,5 @@ function checkLength(which) {
     }
 }
 
-    // 输入标题和正文不能为空 
-    // console.log($('#TextArea1').val());
-    var TextArea1 = $("#TextArea1").val();
-    var summernote = $(".summernote").text();
-    $("#publish").click(function(){
-        console.log($("#TextArea1").val());
-        console.log($(".summernote").val());
-        if(TextArea1 == 0 && summernote ==0){
-            alert("不能为空");
-        }
-    });
+
     

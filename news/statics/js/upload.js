@@ -173,12 +173,52 @@
             fileSizeLimit: 2000 * 1024 * 1024,    // 200 M
             fileSingleSizeLimit: 500 * 1024 * 1024    // 50 M
         });
+        var  pic = '';
         uploader.on( 'uploadSuccess', function( file,response ) {
-           
+           //自己的写的上传代码--------------------------------------------------------------------------------------------------
             console.log(response);
-          
-                // uploadSuccess(file,response);
+            pic = response
+             // uploadSuccess(file,response);
         });
+
+        var oUserId = $.session.get('userID');
+        var oUserName = $.session.get('username');
+
+        console.log(oUserId);
+        console.log(oUserName);
+        //发布
+        // 输入标题和正文不能为空 
+        $("#publish").click(function () {
+            var TextArea1 = $("#TextArea1").val();
+            var summernote = $(".note-editable").text();
+            var class_id = $(".lei").val(); 
+            console.log(class_id)
+            console.log(TextArea1);
+            console.log(summernote);
+
+            $.ajax({
+                type: 'GET',
+                url: '../../../news/addNews',
+                data:{
+                    class_id:class_id,
+                    user_id:oUserId,
+                    title:TextArea1,
+                    TEXT:summernote,
+                    image:pic,
+                    frequency:0
+                },
+                dataType: 'JSON',
+                success: function(data){
+                    console.log(data)
+                },
+                error:function(error){
+                    console.log(data)
+                }
+        });
+        })
+
+
+
 
 
         // 拖拽时不接受 js, txt 文件。

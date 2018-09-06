@@ -38,7 +38,7 @@ $(function () {
                 }else if (data[0].level == 1) {
                     let html =
                     `
-                <a href="javascript:void(0);" target="_self">
+                <a href="write.html" target="_self">
                 <span style="color:#2495e4" data-title="编辑新闻">编辑新闻</span>
                 <i class="fa fa-angle-right"></i>
             </a>

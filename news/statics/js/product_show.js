@@ -16,15 +16,15 @@ $(function(){
     console.log(class_id);
     if(class_id == 1){
         $('#leiBie').text('综合要闻')
-    }else if(class_id == 1){
-        $('#leiBie').text('媒体湘农')
     }else if(class_id == 2){
-        $('#leiBie').text('视频新闻')
+        $('#leiBie').text('媒体湘农')
     }else if(class_id == 3){
-        $('#leiBie').text('学院动态')
+        $('#leiBie').text('视频新闻')
     }else if(class_id == 4){
-        $('#leiBie').text('理论教育')
+        $('#leiBie').text('学院动态')
     }else if(class_id == 5){
+        $('#leiBie').text('理论教育')
+    }else if(class_id == 6){
         $('#leiBie').text('专题报道')
     } 
 
