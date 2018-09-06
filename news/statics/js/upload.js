@@ -266,7 +266,7 @@
                     } else {
                         $.ajax('../../../news/fileUpload', {
                             method: 'POST',
-                            data: file,
+                            data: src,
                             dataType:'json'
                         }).done(function( response ) {
                             if (response.result) {
