@@ -473,14 +473,14 @@
                     });*/
                     stats = uploader.getStats();
                     if ( stats.successNum && !stats.uploadFailNum ) {
-                        setState( 'finish' );
+                        // setState( 'finish' );
                         return;
                     }
                     break;
                 case 'finish':
                     stats = uploader.getStats();
                     if ( stats.successNum ) {
-                        document.getElementById("shareUrl").style.visibility = 'visible';
+                        // document.getElementById("shareUrl").style.visibility = 'visible';
                         createQrcode();
                     } else {
                         // 没有成功的图片，重设
