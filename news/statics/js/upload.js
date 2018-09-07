@@ -177,7 +177,7 @@
         uploader.on( 'uploadSuccess', function( file,response ) {
            //自己的写的上传代码--------------------------------------------------------------------------------------------------
             console.log(response);
-            pic = response
+            pic = response._raw
              // uploadSuccess(file,response);
         });
 
