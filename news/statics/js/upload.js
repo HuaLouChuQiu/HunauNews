@@ -212,7 +212,7 @@
                     console.log(data)
                 },
                 error:function(error){
-                    console.log(data)
+                    console.log(error);
                 }
         });
         })
